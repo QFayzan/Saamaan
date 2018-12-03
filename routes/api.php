@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//functions for CRUD of users
+Route::get('User','UsersController@index()');
+Route::post('User','UserController@create()');
+Route::get('User','UserController@show()');
+Route::post('User','UserController@edit()');
+Route::post('User','UserController@update()');
+Route::post('User','UserController@destroy()');
+

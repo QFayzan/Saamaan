@@ -18,6 +18,7 @@ class CreateDriversTable extends Migration
             $table->string('name');
             $table->integer('CNIC_Number');
             $table->integer('Phone_Number');
+            $table->string('Picture');
             $table->timestamps();
         });
     }

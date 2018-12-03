@@ -19,6 +19,7 @@ class CreateOrderDetailsTable extends Migration
             $table->string('Quantity');
             $table->string('Weight');
             $table->string('dimension');
+            $table->string('image');
             $table->timestamps();
         });
     }
