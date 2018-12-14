@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,9 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Saamaan Main Page</title>
+    <title>Document</title>
 </head>
 <body>
+
+<form action="/user/{{ $user->id}}" method="post">
+    @csrf
+    @method('PATCH')
+    <input type="text" name="name" value="{{$user->name}}">
+    <button type="submit">Update</button>
+</form>
 
 </body>
 </html>

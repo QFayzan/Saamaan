@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66ca7343889332c2b8ecca11c251430c",
+    "content-hash": "04aa9f466adfb9969b1d6ad6ee7b0314",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -744,6 +744,59 @@
                 "storage"
             ],
             "time": "2018-11-23T23:41:29+00:00"
+        },
+        {
+            "name": "melihovv/laravel-package-generator",
+            "version": "5.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/melihovv/laravel-package-generator.git",
+                "reference": "8a835185a738ce502a9f979d01280b3fe365e150"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/melihovv/laravel-package-generator/zipball/8a835185a738ce502a9f979d01280b3fe365e150",
+                "reference": "8a835185a738ce502a9f979d01280b3fe365e150",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0",
+                "illuminate/container": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0",
+                "illuminate/filesystem": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0",
+                "illuminate/support": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0",
+                "illuminate/view": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Melihovv\\LaravelPackageGenerator\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Melihovv\\LaravelPackageGenerator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Melihov",
+                    "email": "amelihovv@ya.ru"
+                }
+            ],
+            "description": "A laravel package generator",
+            "keywords": [
+                "generator",
+                "laravel",
+                "package"
+            ],
+            "time": "2018-09-04T20:18:47+00:00"
         },
         {
             "name": "monolog/monolog",
