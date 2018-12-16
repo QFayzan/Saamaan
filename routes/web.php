@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'HomeController@index')->name('home');
 //User Routes
 Route::get('/users', 'userscontroller@index');
 Route::get('/users/create','usersController@create');
@@ -52,3 +53,7 @@ Route::patch('/order_details/{order_details}','vehcilescontroller@update');
 Route::delete('/order_details/{order_details}','vehcilescontroller@destroy');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
