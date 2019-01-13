@@ -24,7 +24,11 @@
                         <div class="card-header">Check Order</div>
                     
                         <div class="card-body">
-                            <button type="View Job" onclick="window.location='{{ url("orders/show") }}'">Button</button>
+                           <a href="{{route('orders.show')}}"
+                              class= "btn btn-primary"
+                               >
+                               View Your Order
+                           </a>
                 
                         </div>
                     </div>

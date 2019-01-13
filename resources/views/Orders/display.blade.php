@@ -9,11 +9,9 @@
                         <div class="card-header">Order Details</div>
                         
                         <div class="card-body">
-                            <div><b>Username: </b>{{ auth()->user()->name }}  </div>
-                            <div><b>E-Mail: </b>{{ auth()->user()->email }}  </div>
-                            <div><b>Address: </b>{{ auth()->user()->address }}  </div>
-                            <div><b>City: </b>{{ auth()->user()->city }} </div>
-                            <div><b>Phone Number: </b>{{ auth()->user()->Phone_Number }} </div>
+                    {{--order details and id shown here--}}
+                            <div><br>{{Current_Status}}</div>
+                            <div><br></div>
                         </div>
                     </div>
                 </div>
