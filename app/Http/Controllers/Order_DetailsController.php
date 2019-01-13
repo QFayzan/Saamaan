@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Order_Detail;
 use Illuminate\Http\Request;
 
@@ -24,10 +25,9 @@ class Order_DetailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Order $order)
     {
-        //
-        return view('order_details.create');
+        return view('orders.fill',compact('order'));
     }
 
     /**
@@ -40,13 +40,13 @@ class Order_DetailsController extends Controller
     {
         //
         $data = $this->validate($request,[
-            "name" => "required|string",
-            "Quantity" => "required|string",
-            "Weight" =>"required|number",
-            "dimension" =>"required|number",
-        ]);
+        "name" => "required|string",
+        "Quantity" => "required|string",
+        "Weight" =>"required|numeric",
+        "Dimension" =>"required|numeric",
+    ]);
         Order_Detail::create($data);
-        return redirect('/order_detail');
+        return redirect('/users/show');
     }
 
     /**

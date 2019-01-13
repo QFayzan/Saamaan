@@ -10,12 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', 'HomeController@index')->name('home');
 //User Routes
-Route::get('/users', 'userscontroller@index');
+Route::get('/users/show', 'userscontroller@index');
 Route::get('/users/create','usersController@create');
 Route::post('/users/store','usersController@store')->name('user.store');
-Route::get('/users/{user}','usersController@show');
+Route::get('/users/display','usersController@show')->name('user.show');
 Route::get('/users/{user}/edit','usersController@edit');
 Route::patch('/users/{user}','usersController@update');
 Route::delete('/users/{user}','usersController@destroy');
@@ -37,23 +38,25 @@ Route::patch('/vehicles/{vehicle}','vehcilescontroller@update');
 Route::delete('/vehicles/{vehicle}','vehcilescontroller@destroy');
 //Order Routes
 Route::get('/orders','orderscontroller@index');
-Route::get('/orders/create','orderscontroller@create');
-Route::post('/orders/store','orderscontroller@store')->name('orders.store');
+Route::get('/orders/create','orderscontroller@create')->name('orders.create');
+Route::get('/orders/store','orderscontroller@store')->name('orders.store');
 Route::get('/orders/{order}','orderscontroller@show');
 Route::get('/orders/{order}/edit','orderscontroller@edit');
 Route::patch('/orders/{order}','orderscontroller@update');
 Route::delete('/orders/{order}','orderscontroller@destroy');
 //Order_details Routes
-Route::get('/order_details','vehcilescontroller@index');
-Route::get('/order_details/create','vehcilescontroller@create');
-Route::post('/order_details/store','vehcilescontroller@store')->name('vehicles.store');
-Route::get('/order_details/{order_details}','vehcilescontroller@show');
-Route::get('/order_details/{order_details}/edit','vehcilescontroller@edit');
-Route::patch('/order_details/{order_details}','vehcilescontroller@update');
-Route::delete('/order_details/{order_details}','vehcilescontroller@destroy');
-
-
+Route::get('/order/{order}/details/','order_detailscontroller@index');
+Route::get('/order/{order}/details/create','order_detailscontroller@create')->name('details.create');
+Route::post('/order/{order}/details/store','order_detailscontroller@store')->name('details.store');
+Route::get('/order/{order}/details/{order_details}','order_detailscontroller@show');
+Route::get('/order/{order}/details/{order_details}/edit','order_detailscontroller@edit');
+Route::patch('/order/{order}/details/{order_details}','order_detailscontroller@update');
+Route::delete('/order/{order}/details/{order_details}','order_detailscontroller@destroy');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::view('test','test');
+//Route::get('/maptest','MapController@show');
+
+//maps testing code

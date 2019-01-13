@@ -60,6 +60,54 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+        
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : ''
+                                }}" name="address" value="{{ old('address') }}" required autofocus>
+            
+                                @if ($errors->has('address'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+    
+                        <div class="form-group row">
+                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+        
+                            <div class="col-md-6">
+                                <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : ''
+                                }}" name="city" value="{{ old('city') }}" required autofocus>
+            
+                                @if ($errors->has('city'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+    
+                        <div class="form-group row">
+                            <label for="Phone_Number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number')
+                            }} </label>
+        
+                            <div class="col-md-6">
+                                <input id="Phone_Number" type="text" class="form-control{{ $errors->has('Phone_Number') ? '
+                                is-invalid'
+                                : ''
+                                }}" name="Phone_Number" value="{{ old('Phone_Number') }}" required autofocus>
+            
+                                @if ($errors->has('Phone_Number'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('Phone_Number') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -69,6 +117,11 @@
                             </div>
                         </div>
                     </form>
+                 <div>
+                     {{--@if(count($errors))--}}
+                         {{--{{dd($errors) }}--}}
+                         {{--@endif--}}
+                 </div>
                 </div>
             </div>
         </div>

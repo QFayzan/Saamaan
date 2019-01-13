@@ -18,7 +18,7 @@ class UsersController extends Controller
     {
         //
         $users = User::all();
-        return view('Users',compact('users'));
+        return view('/Users/show',compact('users'));
         //return response()->json([$users]);
     }
 
@@ -30,7 +30,7 @@ class UsersController extends Controller
     public function create()
     {
 
-        return view("Drivers.create");
+        return view('/Users/create');
     }
 
     /**
@@ -46,11 +46,9 @@ class UsersController extends Controller
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show ()
     {
-
-//        return response()->json($user);
-        return view('users.show',compact('user'));
+        return view('users.display');
     }
 
 
