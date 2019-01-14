@@ -47,7 +47,7 @@ class Order_DetailsController extends Controller
     ]);
         $order->details()->create($data);
         
-        return redirect('/users/show');
+        return redirect()->route('dashboard');
     }
 
     /**
