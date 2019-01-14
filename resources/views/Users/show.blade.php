@@ -39,23 +39,23 @@
             {{-- Style how ever you want--}}
 
 
-            <div>
+            {{--<div>--}}
                 {{-- orders list--}}
 
-                <ul>
-                    @foreach(auth()->user()->orders as $order)
+                {{--<ul>--}}
+                    {{--@foreach(auth()->user()->orders as $order)--}}
                         {{-- order should have name or some thing to display--}}
-                        <li><a href="{{ route('details.show',$order->id) }}">{{ $order->name }}</a></li>
-                        <p>
-                            @foreach($order->details as $detail)
+                        {{--<li><a href="{{ route('details.show',$order->id) }}">{{ $order->name }}</a></li>--}}
+                        {{--<p>--}}
+                            {{--@foreach($order->details as $detail)--}}
                                 {{-- what ever you want to--}}
-                                {{ $detail->Weight }}
-                            @endforeach
-                        </p>
-                    @endforeach
-                </ul>
+                                {{--{{ $detail->Weight }}--}}
+                            {{--@endforeach--}}
+                        {{--</p>--}}
+                    {{--@endforeach--}}
+                {{--</ul>--}}
 
-            </div>
+            {{--</div>--}}
 
 
         </div>
