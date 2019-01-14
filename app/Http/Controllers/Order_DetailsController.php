@@ -27,7 +27,7 @@ class Order_DetailsController extends Controller
      */
     public function create(Order $order)
     {
-        return view('orders.fill',compact('order'));
+        return view('order_details.create',compact('order'));
     }
 
     /**

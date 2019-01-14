@@ -8,10 +8,10 @@
                     <div class="card">
                         <div class="card-header">Create Order</div>
                         <div class="card-body">
-                            <a href="{{ route("orders.store") }}"
-                               class="btn btn-primary"
-                            >Order!!
-                            </a>
+                            <form action="{{ route('orders.store') }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Order Now</button>
+                            </form>
                         </div>
                     </div>
                 </div>
