@@ -22,7 +22,7 @@ Route::patch('/users/{user}','usersController@update');
 Route::delete('/users/{user}','usersController@destroy');
 //Driver Routes
 Route::get('/drivers','driverscontroller@index');
-Route::get('/drivers/create','driverscontroller@create');
+Route::get('/drivers/create','driverscontroller@create')->name('drivers.create');
 Route::post('/drivers/store','driverscontroller@store')->name('drivers.store');
 Route::get('/drivers/{driver}','drivercontroller@show');
 Route::get('/drivers/{driver}/edit','drivercontoller@edit');
@@ -52,7 +52,8 @@ Route::get('/order/{order}/details/{order_details}','order_detailscontroller@sho
 Route::get('/order/{order}/details/{order_details}/edit','order_detailscontroller@edit');
 Route::patch('/order/{order}/details/{order_details}','order_detailscontroller@update');
 Route::delete('/order/{order}/details/{order_details}','order_detailscontroller@destroy');
-
+//Admin panel stuff here put in user controller in admin() function
+Route::get('/admin/show','userscontroller@admin')->name('admin');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

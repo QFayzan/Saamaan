@@ -12,14 +12,10 @@
                             <div class="card-body">
 
                                 @foreach($order->details as $detail)
-                                    <h4>Detail with name {{ $detail->Name }}</h4>
-                                    <div>
-
-                                        <ul>
-                                            <li><b>Weight :</b> {{ $detail->Weight }}</li>
-                                        </ul>
-
-                                    </div>
+                                    <h4>Details {{ $detail->Name }}</h4>
+                                    <div><b>Weight :</b> {{ $detail->Weight }}</div>
+                                    <div><b>Quantity :</b> {{ $detail->Quantity }}</div>
+                                    <div><b>Dimension :</b> {{ $detail->Dimension }}</div>
                                 @endforeach
 
                             </div>

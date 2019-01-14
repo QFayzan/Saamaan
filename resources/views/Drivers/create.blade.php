@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.user')
 
 @section('content')
     <main class="py-4">
@@ -6,7 +6,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Show User Details</div>
+                        <div class="card-header">Request to be a Driver</div>
                         
                         <div class="card-body">
                         

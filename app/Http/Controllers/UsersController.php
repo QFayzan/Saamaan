@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 class UsersController extends Controller {
     
     /**
+     * Admin Page is being controlled from here
+     */
+    public function admin()
+    {
+        return view('admin');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

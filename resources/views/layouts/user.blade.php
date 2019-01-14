@@ -76,7 +76,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </p>
                         </a>
                     </li>
-                    
+                    @if(auth()->user()->Type=='Client')
+                        <li class="nav-item">
+                            <a href="{{ route('drivers.create') }}" class="nav-link">
+                                <i class="nav-icon fas fa-car"></i>
+                                <p>
+                                    Be a Driver
+                                </p>
+                            </a>
+                        </li>
+                    @endif
+                    @if(auth()->user()->Type=='Admin')
+                        <li class="nav-item">
+                            <a href="{{ route('admin') }}" class="nav-link">
+                                <i class="nav-icon fas fa-tools"></i>
+                                <p>
+                                    Admin
+                                </p>
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a href="/users/display" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
