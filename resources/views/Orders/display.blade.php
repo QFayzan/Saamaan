@@ -4,33 +4,28 @@
     <main class="py-4">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">Order Details</div>
-                        
-                        <div class="card-body">
-                    {{--order details and id shown here--}}
-                            {{-- Style how ever you want--}}
-                            <div>
-                                {{-- orders list--}}
-                                <ul>
-                                    @foreach(auth()->user()->orders as $order)
-                                        {{-- order should have name or some thing to display--}}
-                                        <li><a href="{{ route('orders.display',$order->id) }}">{{ $order->name }}</a></li>
-                                        <p>
-                                            @foreach($order->Order_Detail as $detail)
-                                                {{-- what ever you want to--}}
-                                                {{ $detail->Weight }}
-                                            @endforeach
-                                        </p>
-                                    @endforeach
-                                </ul>
-    
-                            </div>
+                @foreach(auth()->user()->orders as $order)
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">Details of oder with ID {{ $order->id }}.</div>
 
+                            <div class="card-body">
+
+                                @foreach($order->details as $detail)
+                                    <h4>Detail with name {{ $detail->Name }}</h4>
+                                    <div>
+
+                                        <ul>
+                                            <li><b>Weight :</b> {{ $detail->Weight }}</li>
+                                        </ul>
+
+                                    </div>
+                                @endforeach
+
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </main>

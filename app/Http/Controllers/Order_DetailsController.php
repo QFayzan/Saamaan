@@ -36,7 +36,7 @@ class Order_DetailsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Order $order)
     {
         //
         $data = $this->validate($request,[
@@ -45,7 +45,8 @@ class Order_DetailsController extends Controller
         "Weight" =>"required|numeric",
         "Dimension" =>"required|numeric",
     ]);
-        Order_Detail::create($data);
+        $order->details()->create($data);
+        
         return redirect('/users/show');
     }
 

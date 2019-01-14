@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 //User Routes
-Route::get('/users/show', 'userscontroller@index');
+Route::get('/users/dashboard', 'userscontroller@index')->name('dashboard');
 Route::get('/users/create','usersController@create');
 Route::post('/users/store','usersController@store')->name('user.store');
 Route::get('/users/display','usersController@show')->name('user.show');
