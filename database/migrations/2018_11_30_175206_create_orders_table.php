@@ -15,9 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Placed by');
-            $table->string('Picked by');
-            $table->string('Current Status');
+            $table->string('Placed_by');
+            $table->string('Picked_by')->nullable();
+            $table->string('Current_Status')->default('Processing');
             $table->timestamps();
         });
     }
