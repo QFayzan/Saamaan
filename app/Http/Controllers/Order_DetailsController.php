@@ -40,8 +40,8 @@ class Order_DetailsController extends Controller
     {
         //
         $data = $this->validate($request,[
-        "name" => "required|string",
-        "Quantity" => "required|string",
+        "Name" => "required|string",
+        "Quantity" => "required|numeric",
         "Weight" =>"required|numeric",
         "Dimension" =>"required|numeric",
     ]);

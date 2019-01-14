@@ -39,7 +39,7 @@ Route::delete('/vehicles/{vehicle}','vehcilescontroller@destroy');
 //Order Routes
 Route::get('/orders','orderscontroller@index');
 Route::get('/orders/create','orderscontroller@create')->name('orders.create');
-Route::get('/orders/store','orderscontroller@store')->name('orders.store');
+Route::post('/orders/store','orderscontroller@store')->name('orders.store');
 Route::get('/orders/display','ordersController@show')->name('orders.display');
 Route::get('/orders/{order}/edit','orderscontroller@edit');
 Route::patch('/orders/{order}','orderscontroller@update');
