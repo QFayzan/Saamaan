@@ -10,8 +10,24 @@
                         
                         <div class="card-body">
                     {{--order details and id shown here--}}
-                            <div><br>{{Current_Status}}</div>
-                            <div><br></div>
+                            {{-- Style how ever you want--}}
+                            <div>
+                                {{-- orders list--}}
+                                <ul>
+                                    @foreach(auth()->user()->orders as $order)
+                                        {{-- order should have name or some thing to display--}}
+                                        <li><a href="{{ route('orders.display',$order->id) }}">{{ $order->name }}</a></li>
+                                        <p>
+                                            @foreach($order->Order_Detail as $detail)
+                                                {{-- what ever you want to--}}
+                                                {{ $detail->Weight }}
+                                            @endforeach
+                                        </p>
+                                    @endforeach
+                                </ul>
+    
+                            </div>
+
                         </div>
                     </div>
                 </div>
