@@ -23,8 +23,13 @@ class HomeController extends Controller {
      */
     public function index()
     {
-        
-        
-        return view('home');
+        if (auth()->check())
+        {
+            if(auth()->user()->Type=="Admin")
+            {
+                return redirect()->route('admin');
+            }
+            return redirect()->route('dashboard');
+        }
     }
 }

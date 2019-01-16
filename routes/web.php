@@ -53,10 +53,10 @@ Route::get('/order/{order}/details/{order_details}/edit','order_detailscontrolle
 Route::patch('/order/{order}/details/{order_details}','order_detailscontroller@update');
 Route::delete('/order/{order}/details/{order_details}','order_detailscontroller@destroy');
 //Admin panel stuff here put in user controller in admin() function
-Route::get('/admin/show','userscontroller@admin')->name('admin');
+Route::get('/admin/','userscontroller@admin')->name('admin');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::view('test','test');
 //Route::get('/maptest','MapController@show');
 

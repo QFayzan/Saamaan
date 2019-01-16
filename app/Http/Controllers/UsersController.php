@@ -12,7 +12,7 @@ class UsersController extends Controller {
      */
     public function admin()
     {
-        return view('admin');
+        return view('admin.admin');
     }
     
     /**
@@ -23,7 +23,7 @@ class UsersController extends Controller {
     public function index()
     {
         if (auth()->user()->Type == 'Admin')
-            return view('admin.admin');
+            return redirect()->route('admin');
         
         return view('users.show');
         
