@@ -68,24 +68,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard') }}" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    @if(auth()->user()->Type=='Client')
                         <li class="nav-item">
-                            <a href="{{ route('drivers.create') }}" class="nav-link">
-                                <i class="nav-icon fas fa-car"></i>
+                            <a href="{{ route('admin') }}" class="nav-link">
+                                <i class="nav-icon fas fa-tools"></i>
                                 <p>
-                                    Be a Driver
+                                    Admin
                                 </p>
                             </a>
                         </li>
-                    @endif
+                    
                     <li class="nav-item">
                         <a href="/users/display" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>

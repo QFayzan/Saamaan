@@ -14,6 +14,7 @@ class UsersController extends Controller {
     {
         return view('admin');
     }
+    
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +22,12 @@ class UsersController extends Controller {
      */
     public function index()
     {
-        return view('/Users/show');
-        //return response()->json([$users]);
+        if (auth()->user()->Type == 'Admin')
+            return view('admin.admin');
+        
+        return view('users.show');
+        
+        
     }
     
     /**
@@ -45,7 +50,7 @@ class UsersController extends Controller {
     
     /**
      * Display the specified resource.
-     * @param \App\User $id
+     * @param \App\User  $id
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
@@ -77,7 +82,7 @@ class UsersController extends Controller {
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\User $user
+     * @param  \App\User                $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
