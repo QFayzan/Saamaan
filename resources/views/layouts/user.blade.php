@@ -11,6 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     
     <title>Saamaan</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -172,9 +173,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 {{--</footer>--}}
 {{--</div>--}}
 <!-- ./wrapper -->
+    
     <main class="py-4">
         @yield('content')
     </main>
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-none d-sm-inline">
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2014-2018 <a href="#">Saamaan.biz</a>.</strong> All rights reserved.
+        <strong><a href="#">Contact</a></strong>
+        <strong><a href="#">About</a></strong>
+    </footer>
     <script src="/js/app.js"></script>
 </div>
 </body>
