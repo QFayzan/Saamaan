@@ -183,8 +183,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- Default to the left -->
         <strong>Copyright &copy; 2014-2018 <a href="#">Saamaan.biz</a>.</strong> All rights reserved.
-        <strong><a href="#">Contact</a></strong>
-        <strong><a href="#">About</a></strong>
+        <strong><a href="{{route('contact')}}">Contact</a></strong>
+        <strong><a href="{{route('about')}}">About</a></strong>
     </footer>
     <script src="/js/app.js"></script>
 </div>

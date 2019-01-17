@@ -61,3 +61,5 @@ Route::view('test','test');
 //Route::get('/maptest','MapController@show');
 
 //maps testing code
+Route::get('/contact','userscontroller@contact')->name('contact');
+Route::get('/about','userscontroller@about')->name('about');

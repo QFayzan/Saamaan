@@ -96,7 +96,14 @@ class UsersController extends Controller {
         
         return redirect('/users');
     }
-    
+    public function contact()
+    {
+        return view('contact');
+    }
+    public function about()
+    {
+        return view('about');
+    }
     /**
      * Remove the specified resource from storage.
      *
