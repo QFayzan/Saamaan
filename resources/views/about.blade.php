@@ -8,10 +8,11 @@
                         <div class="card-header">About Us</div>
                         <div class="card-body">
                             <p>
-                                Saamaan is a dream of implementing modern day freelance ride sharing phenomena to the market
-                                but in an advanced functional way.
+                                Saamaan is a platform for implementing modern day freelance ride sharing phenomena to the
+                                market but in an advanced functional way.
                                 Our goal is to revolutionize the cargo and courier sector(s) by bringing modern user
-                                accessibility and conveniences such as remote ordering, Location marking and flexible timings.
+                                accessibility and conveniences such as remote ordering, Location marking and flexible work
+                                hours.
                                 Following the pattern of Uber and others Saamaan intends to focus on the delivery sector and
                                 implement digitization in this field.
                             </p>
