@@ -323,15 +323,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-wrapper -->
     
     <!-- Main Footer -->
-    <footer class="main-footer">
-        <!-- To the right -->
-        <div class="float-right d-none d-sm-inline">
-        </div>
-        <!-- Default to the left -->
-        <strong>Copyright &copy; 2014-2018 <a href="#">Saamaan.biz</a>.</strong> All rights reserved.
-        <strong><a href="#">Contact Us </a></strong>
-        <strong><a href="#">About US </a></strong>
-    </footer>
+    {{--<footer class="main-footer">--}}
+        {{--<!-- To the right -->--}}
+        {{--<div class="float-right d-none d-sm-inline">--}}
+        {{--</div>--}}
+        {{--<!-- Default to the left -->--}}
+        {{--<strong>Copyright &copy; {{ date('Y') }} <a href="#">Saamaan.biz</a>.</strong> All rights reserved.--}}
+        {{--<strong><a href="#">Contact Us </a></strong>--}}
+        {{--<strong><a href="#">About US </a></strong>--}}
+    {{--</footer>--}}
 </div>
 <!-- ./wrapper -->
     <main class="py-4">

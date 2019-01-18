@@ -18,7 +18,7 @@ Route::get('/users/create','usersController@create');
 Route::post('/users/store','usersController@store')->name('user.store');
 Route::get('/users/display','usersController@show')->name('user.show');
 Route::get('/users/{user}/edit','usersController@edit');
-Route::patch('/users/{user}','usersController@update');
+Route::patch('/users/{user}','usersController@update')->name('user.update');
 Route::delete('/users/{user}','usersController@destroy');
 //Driver Routes
 Route::get('/drivers','driverscontroller@index');

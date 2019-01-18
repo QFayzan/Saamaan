@@ -16,9 +16,10 @@ class DriversController extends Controller
     {
         //
         $drivers = Driver::all();
-        return view("drivers",compact('drivers'));
+        
+        return view("drivers", compact('drivers'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -30,77 +31,80 @@ class DriversController extends Controller
         return view('drivers.create');
         //return response()->json([$drivers]);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
-        $data = $this->validate($request,[
-            "name" => "required|string",
-            "CNIC_Number" =>"required|number",
-            'Phone_Number' =>"required|number"
+        $data = $this->validate($request, [
+            "name"         => "required|string",
+            "CNIC_Number"  => ['required', 'string', 'regex:/^\d{5}-\d{7}-\d{1}$/i'],
+            'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
         ]);
         Driver::create($data);
+        
         return redirect('/driver');
     }
-
+    
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show(Driver $driver)
     {
         //
-        return view('drivers.show',compact('driver'));
+        return view('drivers.show', compact('driver'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit(driver $driver)
     {
         //
-        return view('drivers.edit',compact('driver'));
+        return view('drivers.edit', compact('driver'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Driver $driver)
     {
         //
-        $data = $this->validate($request,[
-            "name" => "required|string",
-            "CNIC_Number" =>"required|number",
-            'Phone_Number' =>"required|number"
+        $data = $this->validate($request, [
+            "name"         => "required|string",
+            "CNIC_Number"  => "required|number",
+            'Phone_Number' => "required|number"
         ]);
         $driver->update($data);
+        
         return redirect('/driver');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Driver $driver)
     {
         $driver->delete();
+        
         return redirect('/driver');
     }
 }
