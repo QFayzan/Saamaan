@@ -89,12 +89,12 @@ class UsersController extends Controller {
     {
         $data = $this->validate($request, [
             "name"     => "required|string",
-            "email"    => "required|email",
-            "password" => "required",
+            "address"     => "required|string",
+            "city"     => "required|string",
+            'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
         ]);
         $user->update($data);
-        
-        return redirect('/users');
+        return back();
     }
     public function contact()
     {

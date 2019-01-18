@@ -32,7 +32,7 @@
         <div class="form-group">
             <label for="name">Phone_Number</label>
             <input id="name" type="text" name="Phone_Number" class="form-control {{ $errors->has('Phone_Number') ? "is-invalid" : "" }}"
-                   value="{{ $user->Phone_Number }}" placeholder="Phone_Number">
+                   value="{{ $user->Phone_Number }}" placeholder="03XX-XXXXXXX">
             @if($errors->has('Phone_Number'))
                 <strong class="invalid-feedback">{{ $errors->first('Phone_Number') }}</strong>
             @endif
