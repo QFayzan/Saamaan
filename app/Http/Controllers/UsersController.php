@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
-class UsersController extends Controller {
+class UsersController extends Controller
+{
     
     /**
      * Admin Page is being controlled from here
@@ -88,22 +91,26 @@ class UsersController extends Controller {
     public function update(Request $request, User $user)
     {
         $data = $this->validate($request, [
-            "name"     => "required|string",
-            "address"     => "required|string",
-            "city"     => "required|string",
+            "name"         => "required|string",
+            "address"      => "required|string",
+            "city"         => "required|string",
             'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
         ]);
         $user->update($data);
-        return back();
+        
+        return redirect()->route('user.show');
     }
+    
     public function contact()
     {
         return view('contact');
     }
+    
     public function about()
     {
         return view('about');
     }
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -118,5 +125,30 @@ class UsersController extends Controller {
         return redirect('/user');
     }
     
+    public function password()
+    {
+        return view('users.password');
+    }
+    
+    public function changePassword(User $user)
+    {
+        $credentials = [
+            'email'    => $user->email,
+            'password' => request('password'),
+        ];
+        
+        if (Auth::attempt($credentials))
+        {
+            request()->validate([
+                'newPassword' => 'required|confirmed|string|min:6'
+            ]);
+            $user->password = Hash::make(request('newPassword'));
+            $user->save();
+            return redirect()->route('user.show');
+        }
+        return back()->withErrors([
+            'password' => 'Invalid Password'
+        ]);
+    }
     
 }
