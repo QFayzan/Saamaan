@@ -57,9 +57,7 @@
                             <div class="card-header">View Previous Orders</div>
                     
                             <div class="card-body">
-                                <a href="{{route('orders.display')}}"
-                                   class= "btn btn-primary"
-                                >
+                                <a href="{{route('orders.display')}}" class= "btn btn-primary">
                                     View Your Previous Order(s)
                                 </a>
                     

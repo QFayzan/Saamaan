@@ -15,7 +15,12 @@
                             <div><b>Address: </b>{{ auth()->user()->address }}  </div>
                             <div><b>City: </b>{{ auth()->user()->city }} </div>
                             <div><b>Phone Number: </b>{{ auth()->user()->Phone_Number }} </div>
-                           
+                        </div>
+                        <div class="card-body">
+                            <a href="{{route('user.edit',auth()->id())}}" class= "btn btn-primary" type="submit">
+                                Edit your details
+                            </a>
+    
                         </div>
                     </div>
                 </div>
