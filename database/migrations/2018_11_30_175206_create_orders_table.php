@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->string('Placed_by');
             $table->string('Picked_by')->nullable();
-            $table->string('Current_Status')->default('Processing');
+            $table->string('Current_Status')->default('waiting');
             $table->timestamps();
         });
     }

@@ -16,6 +16,11 @@ class Driver extends Model
         return $this->belongsTo(User::class);
     }
     
+    public function order()
+    {
+        return $this->hasOne(Order::class,'Picked_By');
+    }
+    
     public function getCnicAttribute()
     {
         return $this->CNIC_Number;

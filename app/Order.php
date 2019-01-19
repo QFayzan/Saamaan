@@ -6,23 +6,36 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    
     //
-    protected $fillable =[
-        'Placed_by','Picked_by','Current_Status'
-        ];
-
-    public function user()
+    protected $fillable = [
+        'Placed_by', 'Picked_by', 'Current_Status'
+    ];
+    
+    public function placedBy()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'Placed_by');
     }
     
-//    public function order_details()
-//    {
-//        return $this->hasMany(Order_Detail::class);
-//    }
-
+    public function pickedBy()
+    {
+        return $this->belongsTo(Driver::class,'Picked_by');
+    }
+    
     public function details()
     {
         return $this->hasMany(Order_Detail::class);
     }
+    
+    public function getStatusAttribute()
+    {
+        return $this->Current_Status;
+    }
+    
+    public function scopePickable($query)
+    {
+        return $query->where('Current_Status','waiting');
+    }
+    
+    
 }

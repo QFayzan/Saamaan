@@ -22,11 +22,10 @@
                 
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-header">Check Order</div>
+                        <div class="card-header">Check My Orders</div>
                         <a href="{{route('orders.display')}}"></a>
                         <div class="card-body">
-                            <a href=
-                               "{{route('orders.display')}}"
+                            <a href="{{route('orders.index')}}"
                                class="btn btn-primary">
                                 View Your Order
                             </a>

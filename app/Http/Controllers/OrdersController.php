@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Order;
 use Illuminate\Http\Request;
 
-class OrdersController extends Controller {
+class OrdersController extends Controller
+{
     
     /**
      * Display a listing of the resource.
@@ -14,10 +15,27 @@ class OrdersController extends Controller {
      */
     public function index()
     {
-        //
-        $orders = auth()->user()->orders;
+        switch (auth()->user()->Type)
+        {
+            case "Client":
+                $orders = auth()->user()->orders;
+                break;
+            case "Driver":
+                {
+                    if (auth()->user()->driver->order_picked)
+                    {
+                        $order[0] = auth()->user()->driver->order;
+                        $orders = collect( $order );
+                        break;
+                    }
+                    $orders = Order::pickable()->get();
+                    break;
+                }
+            default:
+                return back();
+        }
         
-        return view('Orders', compact('orders'));
+        return view('Orders.index', compact('orders'));
     }
     
     /**
@@ -25,7 +43,8 @@ class OrdersController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public
+    function create()
     {
         //
         return view('Orders.create');
@@ -37,11 +56,14 @@ class OrdersController extends Controller {
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public
+    function store(Request $request)
     {
-        $order = auth()->user()->orders()->create();
+        $order = auth()->user()->orders()->create([
+            'Current_Status' => "waiting",
+        ]);
         
-        return redirect()->route('details.create',$order->id);
+        return redirect()->route('details.create', $order->id);
     }
     
     /**
@@ -50,7 +72,8 @@ class OrdersController extends Controller {
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public
+    function show(Order $order)
     {
         //
         return view('orders.display', compact('order'));
@@ -62,7 +85,8 @@ class OrdersController extends Controller {
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public
+    function edit(Order $order)
     {
         //
         return view('orders.edit', compact('order'));
@@ -75,7 +99,8 @@ class OrdersController extends Controller {
      * @param  int                      $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public
+    function update(Request $request, Order $order)
     {
         //
         $data = $this->validate($request, [
@@ -94,7 +119,8 @@ class OrdersController extends Controller {
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public
+    function destroy(Order $order)
     {
         //
         $order->delete();

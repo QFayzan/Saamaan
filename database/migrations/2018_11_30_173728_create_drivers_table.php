@@ -16,7 +16,7 @@ class CreateDriversTable extends Migration
         Schema::create('drivers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('order_id');
+            $table->boolean('order_picked')->default(false);
             $table->string('Name');
             $table->string('CNIC_Number');
             $table->string('Phone_Number');
