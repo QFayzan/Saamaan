@@ -30,6 +30,12 @@ Route::get('/drivers/{driver}','drivercontroller@show');
 Route::get('/drivers/{driver}/edit','drivercontoller@edit');
 Route::patch('/drivers/{driver}','drivercontroller@update');
 Route::delete('/drivers/{driver}','drivercontroller@destroy');
+
+// New Routes to make sense
+
+Route::post('driver/pick/{order}', 'driversController@pickOrder')->name('driver.pick.order');
+Route::post('driver/completed/{order}', 'driversController@completedOrder')->name('driver.completed.order');
+
 //Vehicle Routes
 Route::get('/vehicles','vehcilescontroller@index');
 Route::get('/vehicles/create','vehcilescontroller@create');

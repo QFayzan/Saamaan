@@ -18,7 +18,7 @@ class Driver extends Model
     
     public function order()
     {
-        return $this->hasOne(Order::class,'Picked_By');
+        return $this->hasOne(Order::class,'Picked_by');
     }
     
     public function getCnicAttribute()

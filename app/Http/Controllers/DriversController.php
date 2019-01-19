@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Driver;
+use App\Order;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,7 @@ class DriversController extends Controller
             'password' => request('password'),
         ];
         
-        if ( Auth::attempt($credentials) )
+        if (Auth::attempt($credentials))
         {
             $data = $this->validate($request, [
                 "CNIC_Number" => ['required', 'string', 'regex:/^\d{5}-\d{7}-\d{1}$/i'],
@@ -129,4 +130,35 @@ class DriversController extends Controller
         
         return redirect('/driver');
     }
+
+
+//    New methods to map according to design
+    
+    public function pickOrder(Order $order)
+    {
+        $driver = auth()->user()->driver;
+        $order->Picked_by = $driver->id;
+        $order->Current_Status = "inProcess";
+        $order->save();
+        
+        $driver->order_picked = true;
+        $driver->save();
+        
+        return redirect()->route('dashboard');
+    }
+    
+    public function completedOrder(Order $order)
+    {
+        $driver = auth()->user()->driver;
+        
+        $order->Current_Status = "completed";
+        $order->save();
+        
+        $driver->order_picked = false;
+        $driver->save();
+        
+        return redirect()->route('dashboard');
+    }
+    
+    
 }
