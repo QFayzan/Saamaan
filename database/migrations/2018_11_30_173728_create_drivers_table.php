@@ -20,7 +20,7 @@ class CreateDriversTable extends Migration
             $table->string('Name');
             $table->string('CNIC_Number');
             $table->string('Phone_Number');
-            $table->string('Picture');
+            $table->string('Picture')->nullable();
             $table->boolean('verified')->default(false);
             $table->timestamps();
         });
