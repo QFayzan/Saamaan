@@ -15,10 +15,13 @@ class CreateDriversTable extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('order_id');
             $table->string('Name');
-            $table->integer('CNIC_Number');
-            $table->integer('Phone_Number');
+            $table->string('CNIC_Number');
+            $table->string('Phone_Number');
             $table->string('Picture');
+            $table->boolean('verified')->default(false);
             $table->timestamps();
         });
     }

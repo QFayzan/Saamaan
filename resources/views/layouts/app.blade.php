@@ -14,13 +14,13 @@
     @include('layouts.nav')
     
     @yield('sidebar')
-    
+    <div class="content-wrapper">
     <main class="py-4">
         @yield('content')
     </main>
-
-    @include('layouts.footer')
     
+    </div>
+    @include('layouts.footer')
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
 </body>

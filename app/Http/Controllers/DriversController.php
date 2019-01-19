@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Driver;
+use Auth;
 use Illuminate\Http\Request;
 
 class DriversController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -40,16 +42,32 @@ class DriversController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $data = $this->validate($request, [
-            "name"         => "required|string",
-            "CNIC_Number"  => ['required', 'string', 'regex:/^\d{5}-\d{7}-\d{1}$/i'],
-            'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
-        ]);
-        Driver::create($data);
+        $user = auth()->user();
+        $credentials = [
+            'email'    => $user->email,
+            'password' => request('password'),
+        ];
         
-        return redirect('/driver');
+        if ( Auth::attempt($credentials) )
+        {
+            $data = $this->validate($request, [
+                "CNIC_Number" => ['required', 'string', 'regex:/^\d{5}-\d{7}-\d{1}$/i'],
+            ]);
+            
+            $data['Phone_Number'] = $user->Phone_Number;
+            $data['Name'] = $user->name;
+            $user->driver()->create($data);
+            $user->Type = "Driver";
+            $user->save();
+            
+            return redirect()->route('dashboard');
+        }
+        
+        return back()->withErrors([
+            'password' => 'Invalid Password'
+        ]);
     }
+    
     
     /**
      * Display the specified resource.
@@ -57,7 +75,8 @@ class DriversController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Driver $driver)
+    public
+    function show(Driver $driver)
     {
         //
         return view('drivers.show', compact('driver'));
@@ -69,7 +88,8 @@ class DriversController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(driver $driver)
+    public
+    function edit(driver $driver)
     {
         //
         return view('drivers.edit', compact('driver'));
@@ -82,7 +102,8 @@ class DriversController extends Controller
      * @param  int                      $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Driver $driver)
+    public
+    function update(Request $request, Driver $driver)
     {
         //
         $data = $this->validate($request, [
@@ -101,7 +122,8 @@ class DriversController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Driver $driver)
+    public
+    function destroy(Driver $driver)
     {
         $driver->delete();
         

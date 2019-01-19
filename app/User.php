@@ -32,4 +32,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class,'Placed_by');
     }
+    
+    public function driver()
+    {
+        return $this->hasOne(Driver::class);
+    }
+    
 }

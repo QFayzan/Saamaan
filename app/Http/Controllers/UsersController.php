@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Driver;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,8 @@ class UsersController extends Controller
      */
     public function admin()
     {
-        return view('admin.admin');
+        $drivers = Driver::unVerified()->get();
+        return view('admin.admin',compact('drivers'));
     }
     
     /**
@@ -28,7 +30,7 @@ class UsersController extends Controller
         if (auth()->user()->Type == 'Admin')
             return redirect()->route('admin');
         
-        return view('users.show');
+        return view('users.home');
         
         
     }
