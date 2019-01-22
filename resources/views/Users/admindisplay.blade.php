@@ -14,7 +14,7 @@
                 <div><b>Phone Number: </b>{{ auth()->user()->Phone_Number }} </div>
             </div>
             <div class="card-body">
-                <a href="{{route('user.edit',auth()->id())}}" class="btn btn-primary" type="submit">
+                <a href="{{route('user.adminedit',auth()->id())}}" class="btn btn-primary" type="submit">
                     Edit your details
                 </a>
             

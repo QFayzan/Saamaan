@@ -86,6 +86,11 @@ class UsersController extends Controller
         
         return view('users.edit', compact('user'));
     }
+      public function adminedit(User $user)
+    {
+        
+        return view('users.adminedit', compact('user'));
+    }
     
     /**
      * Update the specified resource in storage.
@@ -105,6 +110,18 @@ class UsersController extends Controller
         $user->update($data);
         
         return redirect()->route('user.show');
+    }
+    public function adminupdate(Request $request, User $user)
+    {
+        $data = $this->validate($request, [
+            "name"         => "required|string",
+            "address"      => "required|string",
+            "city"         => "required|string",
+            'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
+        ]);
+        $user->update($data);
+        
+        return redirect()->route('user.adminshow');
     }
     
     public function contact()
