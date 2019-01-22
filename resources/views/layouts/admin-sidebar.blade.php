@@ -35,7 +35,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a href="/users/display" class="nav-link">
+                    <a href="/users/admindisplay" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Profile

@@ -17,6 +17,7 @@ Route::get('/users/dashboard', 'userscontroller@index')->name('dashboard');
 Route::get('/users/create','usersController@create');
 Route::post('/users/store','usersController@store')->name('user.store');
 Route::get('/users/display','usersController@show')->name('user.show');
+Route::get('/users/admindisplay','usersController@adminshow')->name('user.adminshow');
 Route::get('/users/{user}/edit','usersController@edit')->name('user.edit');
 Route::get('user/password', 'usersController@password')->name('user.password');
 Route::patch('user/password/{user}', 'usersController@changePassword')->name('user.changePass');

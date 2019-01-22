@@ -63,6 +63,10 @@ class UsersController extends Controller
     {
         return view('users.display');
     }
+      public function adminshow()
+    {
+        return view('users.admindisplay');
+    }
     
     
     public function store(Request $request)
