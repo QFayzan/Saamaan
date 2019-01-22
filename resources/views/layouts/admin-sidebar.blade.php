@@ -27,7 +27,7 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="{{ route('admin') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tools"></i>
+                        <i class="nav-icon fas fa-tools" style="color:green"></i>
                         <p>
                             Admin
                         </p>
@@ -35,7 +35,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a href="/users/admindisplay" class="nav-link">
+                    <a href="/users/admindisplay" class="nav-link" style="color:yellow">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Profile
@@ -46,7 +46,7 @@
                     <a class="nav-link" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                        <i class="nav-icon fa fa-power-off"></i>
+                        <i class="nav-icon fa fa-power-off" style="color: red;"></i>
                         <p>
                             {{ __('Logout') }}
                         </p>
