@@ -59,11 +59,17 @@ class OrdersController extends Controller
     public
     function store(Request $request)
     {
+        $data = $this->validate($request,[
+            "Name" => "required|string",
+            "Quantity" => "required|numeric",
+            "Weight" =>"required|numeric",
+            "Dimension" =>"required|numeric",
+        ]);
         $order = auth()->user()->orders()->create([
             'Current_Status' => "waiting",
         ]);
-        
-        return redirect()->route('details.create', $order->id);
+        $order->details()->create($data);
+        return back();
     }
     
     /**
