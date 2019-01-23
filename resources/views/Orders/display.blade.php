@@ -8,9 +8,7 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-header">Details of order with ID {{ $order->id }}.</div>
-
                             <div class="card-body">
-
                                 @foreach($order->details as $detail)
                                     <h4>Details {{ $detail->Name }}</h4>
                                     <div><b>Weight :</b> {{ $detail->Weight }}</div>

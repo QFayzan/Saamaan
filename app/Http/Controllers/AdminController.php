@@ -2,17 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Driver;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
-{
-    //
-    public function promote()
-    {
-        //Promotion function should be here just pick a user
+class AdminController extends Controller {
     
+    public function promote(Driver $driver)
+    {
+        $driver->verified = true;
+        $driver->save();
+        return back();
     }
+    
+    public function refuse(Driver $driver)
+    {
+        dd($driver);
+      
+    }
+    
     public function editUser()
     {
     
@@ -22,6 +31,7 @@ class AdminController extends Controller
     {
     
     }
+    
     public function edit()
     {
     

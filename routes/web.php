@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 //User Routes
@@ -28,13 +29,11 @@ Route::delete('/users/{user}','usersController@destroy');
 Route::get('/drivers','driverscontroller@index');
 Route::get('/drivers/create','driverscontroller@create')->name('drivers.create');
 Route::post('/drivers/store','driverscontroller@store')->name('drivers.store');
-Route::get('/drivers/{driver}','drivercontroller@show');
-Route::get('/drivers/{driver}/edit','drivercontoller@edit');
-Route::patch('/drivers/{driver}','drivercontroller@update');
-Route::delete('/drivers/{driver}','drivercontroller@destroy');
-
+Route::get('/drivers/{driver}','driverscontroller@show');
+Route::get('/drivers/{driver}/edit','driverscontoller@edit');
+Route::patch('/drivers/{driver}','driverscontroller@update');
+Route::delete('/drivers/{driver}','driverscontroller@destroy')->name('drivers.destroy');
 // New Routes to make sense
-
 Route::post('driver/pick/{order}', 'driversController@pickOrder')->name('driver.pick.order');
 Route::post('driver/completed/{order}', 'driversController@completedOrder')->name('driver.completed.order');
 
@@ -64,8 +63,8 @@ Route::patch('/order/{order}/details/{order_details}','order_detailscontroller@u
 Route::delete('/order/{order}/details/{order_details}','order_detailscontroller@destroy');
 //Admin panel stuff here put in user controller in admin() function
 Route::get('/admin/','userscontroller@admin')->name('admin');
-Auth::routes();
-
+Route::get('/admin/promote/{driver}','admincontroller@promote')->name('admin.promote');
+//Route::get('/admin/demote/{driver}','admincontroller@refuse')->name('driver.delete');
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::view('test','test');
 //Route::get('/maptest','MapController@show');

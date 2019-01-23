@@ -123,15 +123,12 @@ class DriversController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function destroy(Driver $driver)
+    public function destroy(Driver $driver)
     {
+        $driver->user->Type = 'Client';
         $driver->delete();
-        
-        return redirect('/driver');
+        return redirect('/admin');
     }
-
-
 //    New methods to map according to design
     
     public function pickOrder(Order $order)

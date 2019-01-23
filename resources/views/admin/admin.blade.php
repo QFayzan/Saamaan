@@ -11,12 +11,17 @@
                                     <h4>Promote to Driver</h4>
                                 </div>
                                 <div class="card-body">
+                                    <h5>User ID for the account:<small>{{ $driver->user_id }}</small></h5>
                                     <h5>Name :  <small>{{ $driver->Name }}</small></h5>
                                     <h5>CNIC :  <small>{{ $driver->cnic }}</small></h5>
                                     <h5>Phone :  <small>{{ $driver->phone }}</small></h5>
-                                    <button class="btn btn-primary">Promote</button>
-                                    <button class="btn btn-danger">Demote</button>
-                                    <!-- TODO: make it work using bs-models -->
+                                    <div class="button-container">
+                                        <a href="{{route('admin.promote',$driver->id)}}"
+                                           class= "btn btn-primary">Promote</a>
+                                    <a href="{{route('drivers.destroy',$driver->id)}}"
+                                           class= "btn btn-danger">Refuse</a>
+                                    </div>
+                                    <!-- TODO: make it work using models -->
                                 </div>
                         @endforeach
                         </div>
