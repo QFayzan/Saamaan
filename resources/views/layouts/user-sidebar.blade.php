@@ -11,8 +11,13 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                {{--Driver Auth pic/storage/{{ auth()->user()->driver->Picture }}--}}
+                @if(auth()->user()->Type=='Client')
                 <img src="/img/profile.png" class="img-circle elevation-2" alt="User Image">
+               
+                    @else()
+                    <img src="storage/app/public{{ auth()->user()->driver->Picture }}" class="img" alt="User Image">
+                   
+                @endif
             </div>
             <div class="info">
                 <a href="#" class="d-block" style="font-size:large;font-stretch: expanded";>

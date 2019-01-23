@@ -15,13 +15,14 @@
                                     <h5>Name :  <small>{{ $driver->Name }}</small></h5>
                                     <h5>CNIC :  <small>{{ $driver->cnic }}</small></h5>
                                     <h5>Phone :  <small>{{ $driver->phone }}</small></h5>
+                                    <h5>Image :  <img src="storage/app/public{{ auth()->user()->driver->Picture }}"></h5>
                                     <div class="button-container">
                                         <a href="{{route('admin.promote',$driver->id)}}"
                                            class= "btn btn-primary">Promote</a>
                                     <a href="{{route('drivers.destroy',$driver->id)}}"
                                            class= "btn btn-danger">Refuse</a>
                                     </div>
-                                    <!-- TODO: make it work using models -->
+                                    
                                 </div>
                         @endforeach
                         </div>
