@@ -46,17 +46,24 @@ class DriversController extends Controller
         $user = auth()->user();
         $credentials = [
             'email'    => $user->email,
-            'password' => request('password'),
+            'password' => request('password')
+            
         ];
         
         if (Auth::attempt($credentials))
         {
             $data = $this->validate($request, [
                 "CNIC_Number" => ['required', 'string', 'regex:/^\d{5}-\d{7}-\d{1}$/i'],
+                "Picture"=> 'required|mimes:png,jpg,jpeg|max:2048'
             ]);
             
             $data['Phone_Number'] = $user->Phone_Number;
             $data['Name'] = $user->name;
+            //picture implementation here
+            $data['Picture'] = now()->format('YmdU') . "." . $request->Picture->getClientOriginalExtension();
+            $request->Picture->storeAs('public', $data['Picture']);
+    
+    
             $user->driver()->create($data);
             $user->Type = "Driver";
             $user->save();

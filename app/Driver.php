@@ -8,7 +8,7 @@ class Driver extends Model
 {
     //
     protected $fillable =[
-        'Name','CNIC_Number','Phone_Number',
+        'Name','CNIC_Number','Phone_Number','Picture'
         ];
     
     public function user()

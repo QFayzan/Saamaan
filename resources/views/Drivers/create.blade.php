@@ -47,7 +47,7 @@
                  aria-labelledby="apply-for-driver" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <form action="{{ route('drivers.store') }}" method="post">
+                        <form action="{{ route('drivers.store') }}" method="post" enctype="multipart/form-data">
                             <div class="modal-header">
                                 <h5 class="modal-title">Apply now to be a driver</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -76,6 +76,20 @@
                                                placeholder="Your CNIC Number">
                                         @if($errors->has('CNIC_Number'))
                                             <strong class="invalid-feedback">{{ $errors->first('CNIC_Number') }}</strong>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="picture" class="col-sm-2 col-form-label">Picture :</label>
+                                    <div class="col-sm-10">
+                                        <div class="custom-file">
+                                            <input id="custom-file" type="file" name="Picture"
+                                                   class="custom-file-input {{ $errors->has('Picture') ? "is-invalid" : "" }}"
+                                                   value="{{ old('Picture') }}" placeholder="Picture">
+                                            <label class="custom-file-label" for="custom-file">Upload Your Image</label>
+                                        </div>
+                                        @if($errors->has('Picture'))
+                                            <strong class="invalid-feedback">{{ $errors->first('Picture') }}</strong>
                                         @endif
                                     </div>
                                 </div>
