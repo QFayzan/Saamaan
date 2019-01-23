@@ -47,7 +47,6 @@ class DriversController extends Controller
         $credentials = [
             'email'    => $user->email,
             'password' => request('password')
-            
         ];
         
         if (Auth::attempt($credentials))
@@ -62,8 +61,7 @@ class DriversController extends Controller
             //picture implementation here
             $data['Picture'] = now()->format('YmdU') . "." . $request->Picture->getClientOriginalExtension();
             $request->Picture->storeAs('public', $data['Picture']);
-    
-    
+            
             $user->driver()->create($data);
             $user->Type = "Driver";
             $user->save();

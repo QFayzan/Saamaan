@@ -15,7 +15,7 @@
                                     <h5>Name :  <small>{{ $driver->Name }}</small></h5>
                                     <h5>CNIC :  <small>{{ $driver->cnic }}</small></h5>
                                     <h5>Phone :  <small>{{ $driver->phone }}</small></h5>
-                                    <h5>Image :  <img src="storage/app/public{{ auth()->user()->driver->Picture }}"></h5>
+                                    <h5>Image :  <img src="storage/{{ $driver->Picture  }}" height="100" width="100"></h5>
                                     <div class="button-container">
                                         <a href="{{route('admin.promote',$driver->id)}}"
                                            class= "btn btn-primary">Promote</a>
