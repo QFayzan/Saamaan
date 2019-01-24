@@ -38,7 +38,6 @@ class Order_DetailsController extends Controller
      */
     public function store(Request $request, Order $order)
     {
-        //
         $data = $this->validate($request,[
         "Name" => "required|string",
         "Quantity" => "required|numeric",
@@ -46,8 +45,9 @@ class Order_DetailsController extends Controller
         "Dimension" =>"required|numeric",
     ]);
         $order->details()->create($data);
+        flash("Details added successfully");
         
-        return redirect()->route('dashboard');
+        return back();
     }
 
     /**

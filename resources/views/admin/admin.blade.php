@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('nav-title','Admin Dashboard')
 @section('content')
     <main class="py-4">
         <div class="container">
@@ -19,8 +20,11 @@
                                     <div class="button-container">
                                         <a href="{{route('admin.promote',$driver->id)}}"
                                            class= "btn btn-primary">Promote</a>
-                                    <a href="{{route('drivers.destroy',$driver->id)}}"
-                                           class= "btn btn-danger">Refuse</a>
+    
+                                        <form action="{{ route('admin.refuse',$driver->id) }}" method="post">
+                                            @csrf
+                                            <button class="btn btn-danger" type="submit">Refuse</button>
+                                        </form>
                                     </div>
                                     
                                 </div>

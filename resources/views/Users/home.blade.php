@@ -48,7 +48,7 @@
                                 
                                 <div class="card-body">
                                     <a class="btn btn-primary" href="{{route('orders.index')}}">
-                                        Pick an Order
+                                        {{ auth()->user()->driver->order_picked ? "Show Current Order" : "Pick an Order"}}
                                     </a>
                                 </div>
                             </div>

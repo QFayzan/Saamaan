@@ -11,12 +11,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                @if(auth()->user()->Type=='Client')
-                <img src="/img/profile.png" class="img-circle elevation-2" alt="User Image">
-               
-                    @else()
+                @if(auth()->user()->Type=='Driver')
                     <img src="storage/app/public{{ auth()->user()->driver->Picture }}" class="img" alt="User Image">
-                   
+                @else()
+                    <img src="/img/profile.png" class="img-circle elevation-2" alt="User Image">
                 @endif
             </div>
             <div class="info">

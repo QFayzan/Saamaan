@@ -3,23 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Driver;
-use http\Client\Curl\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
     
     public function promote(Driver $driver)
     {
         $driver->verified = true;
         $driver->save();
+        flash("Driver promoted");
+        
         return back();
     }
     
     public function refuse(Driver $driver)
     {
-        dd($driver);
-      
+        $driver->user->Type = "Client";
+        $driver->user->save();
+//        unlink('storage/' . $driver->Picture);
+        $driver->delete();
+        flash("Driver rejected");
+        
+        return back();
     }
     
     public function editUser()
