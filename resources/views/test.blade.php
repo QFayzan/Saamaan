@@ -1,77 +1,69 @@
-@extends('layouts.user')
-
-@section('content')
-    <div class="container">
-        <div class="container-fluid">
-            
-            <h2 class="text-center">Options</h2>
-            <hr>
-            <div class="row justify-content-around">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">Create Order</div>
-                        <div class="card-body">
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                              data-target="#exampleModal">Order Now
-                            </button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <form method="POST" action="{{ route('orders.store') }}">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Some general information</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                @csrf
-                                                <div class="form-group">
-                                                    <label for="Name">Brief explanation of order</label>
-                                                    <input id="Name" type="text" name="Name" class="form-control {{
-                                                    $errors->has('Name') ? "is-invalid" : "" }}" value="{{ old('Name') }}"
-                                                           placeholder="Name">
-                                                    @if($errors->has('Name'))
-                                                        <strong class="invalid-feedback">{{ $errors->first('Name') }}</strong>
-                                                    @endif
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="quantity">Quantity or number of items in the order</label>
-                                                    <input id="quantity" type="text" name="Quantity" class="form-control {{ $errors->has('Quantity') ? "is-invalid" : "" }}" value="{{ old('Quantity') }}" placeholder="Quantity">
-                                                    @if($errors->has('Quantity'))
-                                                        <strong class="invalid-feedback">{{ $errors->first('Quantity') }}</strong>
-                                                    @endif
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="weight">Weight of the order this must be in kilograms</label>
-                                                    <input id="weight" type="text" name="Weight" class="form-control {{ $errors->has('Weight') ? "is-invalid" : "" }}" value="{{ old('Weight') }}" placeholder="Weight">
-                                                    @if($errors->has('Weight in KG'))
-                                                        <strong class="invalid-feedback">{{ $errors->first('Weight') }}</strong>
-                                                    @endif
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="dimension">Dimension in meters only </label>
-                                                    <input id="dimension" type="text" name="Dimension" class="form-control {{ $errors->has('Dimension') ? "is-invalid"
-            : "" }}" value="{{ old('Dimension') }}" placeholder="eg 1.25 1.10 means 1.25 meters by 1.10 meters">
-                                                    @if($errors->has('Dimension'))
-                                                        <strong class="invalid-feedback">{{ $errors->first('Dimension') }}</strong>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Close
-                                                </button>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
+    var map, infoWindow;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+        
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
+    
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGn_T2tQUQ8YNBplLX6cyDvMsZ-1aPhHI&callback=initMap">
+</script>
+</body>
+</html>
