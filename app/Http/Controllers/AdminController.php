@@ -16,7 +16,7 @@ class AdminController extends Controller
         return back();
     }
     
-    public function refuse(Driver $driver)
+    public function refuse(User $user)
     {
         $driver->user->Type = "Client";
         $driver->user->save();
