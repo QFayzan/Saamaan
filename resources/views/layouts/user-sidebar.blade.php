@@ -31,7 +31,7 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="{{ route('dashboard') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt" style="color: green"></i>
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
@@ -40,7 +40,7 @@
                 @if(auth()->user()->Type=='Client')
                     <li class="nav-item">
                         <a href="{{ route('drivers.create') }}" class="nav-link">
-                            <i class="nav-icon fas fa-car" style="color: blue"></i>
+                            <i class="nav-icon fas fa-car"></i>
                             <p>
                                 Be a Driver
                             </p>
@@ -49,7 +49,7 @@
                 @endif
                 <li class="nav-item">
                     <a href="/users/display" class="nav-link">
-                        <i class="nav-icon fas fa-user" style="color:yellow"></i>
+                        <i class="nav-icon fas fa-user"></i>
                         <p>
                             Profile
                         </p>
@@ -57,7 +57,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('user.edit', auth()->id()) }}" class="nav-link">
-                        <i class="nav-icon fas fa-user-cog" style="color: orange"></i>
+                        <i class="nav-icon fas fa-user-cog"></i>
                         <p>
                             Setting
                         </p>
@@ -65,7 +65,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('user.password') }}" class="nav-link">
-                        <i class="nav-icon fas fa-cog" style="color: violet"></i>
+                        <i class="nav-icon fas fa-cog"></i>
                         <p>
                             Change Password
                         </p>
@@ -75,7 +75,7 @@
                     <a class="nav-link" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                        <i class="nav-icon fa fa-power-off" style="color:red;"></i>
+                        <i class="nav-icon fa fa-power-off"></i>
                         <p>
                             {{ __('Logout') }}
                         </p>
