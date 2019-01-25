@@ -33,7 +33,6 @@
                 </div>
             </div>
             
-            
             {{--    Options For Driver Only  --}}
             @if(auth()->user()->Type == "Driver" )
                 <h2 class="text-center">Driver Options</h2>

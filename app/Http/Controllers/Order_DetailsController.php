@@ -91,6 +91,7 @@ class Order_DetailsController extends Controller
             "dimension" =>"required|number",
         ]);
         $order_Detail->update($data);
+        flash('details updated');
         return redirect('/order_details');
     }
 

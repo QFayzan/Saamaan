@@ -108,7 +108,7 @@ class UsersController extends Controller
             'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
         ]);
         $user->update($data);
-        
+        flash('details updated');
         return redirect()->route('user.show');
     }
     public function adminupdate(Request $request, User $user)
@@ -120,7 +120,7 @@ class UsersController extends Controller
             'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
         ]);
         $user->update($data);
-        
+        flash('details updated');
         return redirect()->route('user.adminshow');
     }
     

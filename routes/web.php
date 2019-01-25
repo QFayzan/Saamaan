@@ -64,7 +64,7 @@ Route::delete('/order/{order}/details/{order_details}','order_detailscontroller@
 //Admin panel stuff here put in user controller in admin() function
 Route::get('/admin/','userscontroller@admin')->name('admin');
 Route::get('/admin/promote/{driver}','admincontroller@promote')->name('admin.promote');
-Route::get('/admin/demote/{driver}','admincontroller@refuse')->name('driver.delete');
+Route::get('/admin/demote/{driver}','admincontroller@refuse')->name('admin.refuse');
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::view('test','test');
 //Map testing here

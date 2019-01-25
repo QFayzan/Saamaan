@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Driver;
 
-class AdminController extends Controller
-{
+class AdminController extends Controller {
     
     public function promote(Driver $driver)
     {
@@ -16,30 +15,20 @@ class AdminController extends Controller
         return back();
     }
     
-    public function refuse(User $user)
+    public function refuse(Driver $driver)
     {
         $driver->user->Type = "Client";
         $driver->user->save();
-//        unlink('storage/' . $driver->Picture);
+        unlink('storage/' . $driver->Picture);
         $driver->delete();
-        flash("Driver rejected");
-        
+        flash ("Driver rejected",'danger');
         return back();
     }
     
     public function editUser()
     {
-    
+        //Soft delete if and when do here
     }
     
-    public function editDetail()
-    {
-    
-    }
-    
-    public function edit()
-    {
-    
-    }
     
 }

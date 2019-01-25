@@ -65,7 +65,7 @@ class DriversController extends Controller
             $user->driver()->create($data);
             $user->Type = "Driver";
             $user->save();
-            
+            flash('Request Sent');
             return redirect()->route('dashboard');
         }
         

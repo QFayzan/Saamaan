@@ -48,6 +48,7 @@ class OrdersController extends Controller
     {
         //
         return view('Orders.create');
+        
     }
     
     /**
@@ -69,6 +70,7 @@ class OrdersController extends Controller
             'Current_Status' => "waiting",
         ]);
         $order->details()->create($data);
+        flash('Order has been created!!');
         return back();
     }
     
@@ -115,7 +117,7 @@ class OrdersController extends Controller
             //"Current_Status"=> too advanced for now
         ]);
         $order->update($data);
-        
+        flash('order updated');
         return redirect('/orders');
     }
     
@@ -130,7 +132,7 @@ class OrdersController extends Controller
     {
         //
         $order->delete();
-        
+        flash('Order deleted');
         return view('/Orders');
     }
 }
