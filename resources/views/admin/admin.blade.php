@@ -18,8 +18,10 @@
                                     <h5>Phone :  <small>{{ $driver->phone }}</small></h5>
                                     <h5>Image :  <img src="storage/{{ $driver->Picture  }}" height="100" width="100"></h5>
                                     <div class="button-container">
-                                        <a href="{{route('admin.promote',$driver->id)}}"
-                                           class= "btn btn-primary">Promote</a>
+                                        <form action="{{route('admin.promote',$driver->id)}}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">Promote</button>
+                                        </form>
     
                                         <form action="{{ route('admin.refuse',$driver->id) }}" method="post">
                                             @csrf

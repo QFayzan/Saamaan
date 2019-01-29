@@ -1,16 +1,12 @@
-@extends('layouts.user')
+@extends('layouts.auth')
 
 @section('content')
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Saamaan Main Page</title>
-</head>
-<body>
+    <div class="row">
+        <div class="logo text-center col-6">
+            <img src="{{ asset('img/project.png') }}" alt="">
+        </div>
+        <h1>Should work</h1>
+    </div>
 
-</body>
-</html>
+    
+@endsection

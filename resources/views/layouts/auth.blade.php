@@ -26,31 +26,45 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">
-                        Login
+                    <a class="nav-link" href="{{ route('about') }}">
+                        About
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">
-                        Register
+                    <a class="nav-link" href="{{ route('contact') }}">
+                        Contact
                     </a>
                 </li>
+                @auth()
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard') }}">
+                            Dashboard
+                        </a>
+                    </li>
+                @endauth
+                @guest()
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">
+                            Register
+                        </a>
+                    </li>
+                @endguest
             </ul>
         
         </div>
     </div>
 </nav>
 
-
 <div class="container">
-    <div class="row">
-        <div class="logo text-center col-6">
-            <img src="{{ asset('img/project.png') }}" alt="">
-        </div>
-        <main class="col-md">
-            @yield('content')
-        </main>
-    </div>
+    
+    <main class="col-md">
+        @yield('content')
+    </main>
 </div>
 
 <script src="{{ asset('js/app.js') }}"></script>

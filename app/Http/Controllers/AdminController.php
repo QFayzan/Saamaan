@@ -6,6 +6,14 @@ use App\Driver;
 
 class AdminController extends Controller {
     
+    /**
+     * AdminController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function promote(Driver $driver)
     {
         $driver->verified = true;

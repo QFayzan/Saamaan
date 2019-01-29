@@ -12,7 +12,7 @@
 */
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@home');
 //User Routes
 Route::get('/users/dashboard', 'userscontroller@index')->name('dashboard');
 Route::get('/users/create','usersController@create');
@@ -63,12 +63,12 @@ Route::patch('/order/{order}/details/{order_details}','order_detailscontroller@u
 Route::delete('/order/{order}/details/{order_details}','order_detailscontroller@destroy');
 //Admin panel stuff here put in user controller in admin() function
 Route::get('/admin/','userscontroller@admin')->name('admin');
-Route::get('/admin/promote/{driver}','admincontroller@promote')->name('admin.promote');
-Route::get('/admin/demote/{driver}','admincontroller@refuse')->name('admin.refuse');
+Route::post('/admin/promote/{driver}','admincontroller@promote')->name('admin.promote');
+Route::post('/admin/demote/{driver}','admincontroller@refuse')->name('admin.refuse');
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::view('test','test');
 //Map testing here
 
 //Contact and about page go here
-Route::get('/contact','userscontroller@contact')->name('contact');
-Route::get('/about','userscontroller@about')->name('about');
+Route::view('/contact','contact')->name('contact');
+Route::view('/about','about')->name('about');

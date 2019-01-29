@@ -40,7 +40,7 @@
     <hr>
     <p class="text-center">
         Copyright &copy; {{ date('Y') }}
-        <a href="{{ route('home') }}">Saamaan.biz</a>
+        <a href="/">Saamaan.biz</a>
         All rights reserved.
     </p>
 </footer>

@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Admin Page is being controlled from here
      */
@@ -124,15 +127,7 @@ class UsersController extends Controller
         return redirect()->route('user.adminshow');
     }
     
-    public function contact()
-    {
-        return view('contact');
-    }
     
-    public function about()
-    {
-        return view('about');
-    }
     
     /**
      * Remove the specified resource from storage.
