@@ -1,18 +1,4 @@
 <footer class="main-footer text-white sidebar-dark-primary p-3">
-    
-    {{--<h4>Important Links</h4>--}}
-    {{--<ul class="nav">--}}
-        {{--<li class="nav-item">--}}
-            {{--<a class="nav-link" href="{{ route('home') }}">Home</a>--}}
-        {{--</li>--}}
-        {{--<li class="nav-item">--}}
-            {{--<a class="nav-link" href="{{ route('contact') }}">Contact</a>--}}
-        {{--</li>--}}
-        {{--<li class="nav-item">--}}
-            {{--<a class="nav-link" href="{{ route('about') }}">About</a>--}}
-        {{--</li>--}}
-    {{--</ul>--}}
-    
     <div class="row justify-content-md-center sharing-area text-center">
         <div class="text-center col-md-12 col-lg-8">
             <h3>Join us on</h3>
