@@ -4,8 +4,8 @@
     <main class="py-4">
         <div class="container">
             <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <h1 class="text-center"> Drivers to be Verify </h1>
+                    <div class="col-md-4">
+                        <h1 class="text-center"> Drivers to be Verified </h1>
                         @foreach($drivers as $driver )
                             <div class="card">
                                 <div class="card-header">
@@ -34,6 +34,42 @@
                         </div>
                     </div>
             </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">View All Drivers</div>
+                    {{--<a href="{{route('orders.display')}}"></a>--}}
+                    {{--<div class="card-body">--}}
+                        {{--<a href="{{route('orders.index')}}"--}}
+                           {{--class="btn btn-primary">--}}
+                            {{--View Your Order--}}
+                        {{--</a>to be implemented--}}
+                    </div>
+                </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">Check ongoing transactions</div>
+                    {{--<a href="{{route('orders.display')}}"></a>--}}
+                    {{--<div class="card-body">--}}
+                        {{--<a href="{{route('orders.index')}}"--}}
+                           {{--class="btn btn-primary">--}}
+                            {{--View Your Order--}}
+                        {{--</a>to be implemented--}}
+                    </div>
+                </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">View all clients</div>
+                    {{--<a href="{{route('orders.display')}}"></a>--}}
+                    {{--<div class="card-body">--}}
+                        {{--<a href="{{route('orders.index')}}"--}}
+                           {{--class="btn btn-primary">--}}
+                            {{--View Your Order--}}
+                        {{--</a>to be implemented--}}
+                    </div>
+                </div>
+            
+            </div>
+        </div>
         </div>
     </main>
 @endsection

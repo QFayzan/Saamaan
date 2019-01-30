@@ -3,13 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Driver extends Model
 {
+    use SoftDeletes;
     //
     protected $fillable =[
         'Name','CNIC_Number','Phone_Number','Picture'
         ];
+    protected $dates = ['deleted at: '];
     
     public function user()
     {
