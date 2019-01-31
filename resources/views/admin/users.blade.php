@@ -28,7 +28,7 @@
                         <td>{{ $user->created_at }}</td>
                         <td>
                             <div class="card-body">
-                                <a href="{{route('user.edit',auth()->id())}}" class="btn btn-primary" type="submit">
+                                <a href="{{route('admin.user.edit',auth()->id())}}" class="btn btn-primary" type="submit">
                                     Edit User Details
                                 </a>
                             </div>

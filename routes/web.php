@@ -66,6 +66,8 @@ Route::get('/admin/','userscontroller@admin')->name('admin');
 Route::post('/admin/promote/{driver}','admincontroller@promote')->name('admin.promote');
 Route::post('/admin/demote/{driver}','admincontroller@refuse')->name('admin.refuse');
 Route::get('/admin/users','admincontroller@users')->name('admin.view.users');
+Route::get('/admin/users/edit/{user}','admincontroller@editUser')->name('admin.user.edit');
+Route::patch('/admin/users/update/{user}','admincontroller@updateUser')->name('admin.user.update');
 Route::get('/admin/orders','admincontroller@orders')->name('admin.view.orders');
 Route::get('/admin/current','admincontroller@current_orders')->name('admin.view.current');
 //Route::get('/home', 'HomeController@index')->name('home');

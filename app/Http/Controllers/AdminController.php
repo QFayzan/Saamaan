@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\Driver;
 use App\Order;
 use App\User;
@@ -54,9 +54,23 @@ class AdminController extends Controller {
         return back();
     }
     
-    public function editUser()
+    public function updateUser(Request $request, User $user)
     {
-        //Soft delete if and when do here
+        $data = $this->validate($request, [
+            "name"         => "required|string",
+            "address"      => "required|string",
+            "city"         => "required|string",
+            'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
+        ]);
+        $user->update($data);
+        flash('details updated');
+        return redirect( route('admin.view.users'));
+    }
+    
+    public function editUser(User $user)
+    {
+      
+        return view('admin.edit')->with(compact('user'));
     }
     
     
