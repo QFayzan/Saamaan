@@ -1,5 +1,5 @@
 @extends('form')
-@section('title','Edit Your Details')
+@section('title','Edit User Details')
 @section('form')
     
     <form method="POST" action="{{ route('user.update',auth()->id()) }}">
