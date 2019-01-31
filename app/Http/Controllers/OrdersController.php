@@ -61,8 +61,7 @@ class OrdersController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public
-    function store(Request $request)
+    public function store(Request $request)
     {
         $data = $this->validate($request,[
             "Name" => "required|string",
@@ -84,8 +83,7 @@ class OrdersController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function show(Order $order)
+    public function show(Order $order)
     {
         //
         return view('orders.display', compact('order'));
@@ -97,8 +95,7 @@ class OrdersController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function edit(Order $order)
+    public function edit(Order $order)
     {
         //
         return view('orders.edit', compact('order'));
@@ -111,8 +108,7 @@ class OrdersController extends Controller
      * @param  int                      $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function update(Request $request, Order $order)
+    public function update(Request $request, Order $order)
     {
         //
         $data = $this->validate($request, [
@@ -131,8 +127,7 @@ class OrdersController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function destroy(Order $order)
+    public function destroy(Order $order)
     {
         //
         $order->delete();

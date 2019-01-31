@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Driver;
+use App\Order;
+use App\User;
 
 class AdminController extends Controller {
     
@@ -12,6 +14,25 @@ class AdminController extends Controller {
     public function __construct()
     {
         $this->middleware('auth');
+    }
+    
+    public function users()
+    {
+        $users = User::oldest()->get();
+        return view('admin.users')->with(compact('users'));
+    }
+    
+    public function current_orders()
+    {
+        $orders = Order::where ('Current_Status', 'inProcess')->latest()->get();
+        return view('admin.current')->with(compact('orders'));
+    }
+    
+    public function orders()
+    {
+        $orders = Order::oldest()->get();
+        return view('admin.orders')->with(compact('orders'));
+    
     }
     
     public function promote(Driver $driver)

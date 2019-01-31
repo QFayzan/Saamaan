@@ -65,6 +65,9 @@ Route::delete('/order/{order}/details/{order_details}','order_detailscontroller@
 Route::get('/admin/','userscontroller@admin')->name('admin');
 Route::post('/admin/promote/{driver}','admincontroller@promote')->name('admin.promote');
 Route::post('/admin/demote/{driver}','admincontroller@refuse')->name('admin.refuse');
+Route::get('/admin/users','admincontroller@users')->name('admin.view.users');
+Route::get('/admin/orders','admincontroller@orders')->name('admin.view.orders');
+Route::get('/admin/current','admincontroller@current_orders')->name('admin.view.current');
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::view('test','test');
 //Map testing here
@@ -72,3 +75,12 @@ Route::view('test','test');
 //Contact and about page go here
 Route::view('/contact','contact')->name('contact');
 Route::view('/about','about')->name('about');
+//Search function here
+Route::get( '/search', function () {
+    $q = Input::get ( 'q' );
+$user = User::where ( 'name', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->get ();
+if (count ( $user ) > 0)
+    return view ( 'welcome' )->withDetails ( $user )->withQuery ( $q );
+else
+    return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
+} );
