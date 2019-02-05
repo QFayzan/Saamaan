@@ -17,6 +17,21 @@
                                 implement digitization in this field.
                             </p>
                         </div>
+                        <div>
+                            <p>
+                                Contact us at our local branches at
+                            </p>
+                            <ul>
+                                Lahore: XYZ Colony, Lahore. Phone Number: 0423-XXXXXXX
+                            </ul>
+                            <ul>
+                                Karachi: ABC Road, Karachi. Phone Number: 0213-XXXXXXX
+                            </ul>
+                            <ul>
+                                Islamabad: DEF Block, Islamabad. Phone Number: 0513-XXXXXXX
+                            </ul>
+                            
+                        </div>
                     </div>
                 </div>
             </div>

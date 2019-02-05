@@ -32,7 +32,9 @@ class OrdersController extends Controller
                         $orders = collect( $order );
                         break;
                     }
-                    $orders = Order::pickable()->get();
+                    $DriverLocation=auth()->user()->city;
+                    
+                    $orders = Order::pickable()->city($DriverLocation)->get();
                     break;
                 }
             default:
@@ -71,6 +73,7 @@ class OrdersController extends Controller
         ]);
         $order = auth()->user()->orders()->create([
             'Current_Status' => "waiting",
+            'location'=>auth()->user()->city,
         ]);
         $order->details()->create($data);
         flash('Order has been created!!');

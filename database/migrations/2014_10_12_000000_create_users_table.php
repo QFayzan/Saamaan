@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('Type')->default('Client');
             $table->string('Phone_Number');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

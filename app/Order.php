@@ -9,7 +9,7 @@ class Order extends Model
     
     //
     protected $fillable = [
-        'Placed_by', 'Picked_by', 'Current_Status'
+        'Placed_by', 'Picked_by', 'Current_Status','location'
     ];
     
     public function placedBy()
@@ -35,6 +35,10 @@ class Order extends Model
     public function scopePickable($query)
     {
         return $query->where('Current_Status','waiting');
+    }
+    public function scopeCity($query,$DriverLocation)
+    {
+        return $query->where('location',$DriverLocation);
     }
     
     

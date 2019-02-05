@@ -22,6 +22,7 @@ class CreateDriversTable extends Migration
             $table->string('Phone_Number');
             $table->string('Picture')->nullable();
             $table->boolean('verified')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

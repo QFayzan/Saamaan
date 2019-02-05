@@ -82,9 +82,11 @@
                     <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
                     
                     <div class="col-md">
-                        <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : ''
-                                }}" name="city" value="{{ old('city') }}" required autofocus>
-                        
+                        <select name="city" id="city" class="form-control{{ $errors->has('city') ? ' is-invalid' : ''}}">
+                            <option value="lahore" selected>Lahore</option>
+                            <option value="karachi">Karachi</option>
+                            <option value="islamabad">Islamabad</option>
+                        </select>
                         @if ($errors->has('city'))
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('city') }}</strong>

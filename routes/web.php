@@ -13,6 +13,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@home');
+Route::redirect('/home','/');
 //User Routes
 Route::get('/users/dashboard', 'userscontroller@index')->name('dashboard');
 Route::get('/users/create','usersController@create');
