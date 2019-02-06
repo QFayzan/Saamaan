@@ -9,17 +9,17 @@ class Order extends Model
     
     //
     protected $fillable = [
-        'Placed_by', 'Picked_by', 'Current_Status','location'
+        'placed_by', 'picked_by', 'current_status','location'
     ];
     
     public function placedBy()
     {
-        return $this->belongsTo(User::class,'Placed_by');
+        return $this->belongsTo(User::class,'placed_by');
     }
     
     public function pickedBy()
     {
-        return $this->belongsTo(Driver::class,'Picked_by');
+        return $this->belongsTo(Driver::class,'picked_by');
     }
     
     public function details()
@@ -29,12 +29,12 @@ class Order extends Model
     
     public function getStatusAttribute()
     {
-        return $this->Current_Status;
+        return $this->current_status;
     }
     
     public function scopePickable($query)
     {
-        return $query->where('Current_Status','waiting');
+        return $query->where('current_status','waiting');
     }
     public function scopeCity($query,$DriverLocation)
     {

@@ -24,7 +24,7 @@ class AdminController extends Controller {
     
     public function current_orders()
     {
-        $orders = Order::where ('Current_Status', 'inProcess')->latest()->get();
+        $orders = Order::where ('current_status', 'inProcess')->latest()->get();
         return view('admin.current')->with(compact('orders'));
     }
     
@@ -46,9 +46,9 @@ class AdminController extends Controller {
     
     public function refuse(Driver $driver)
     {
-        $driver->user->Type = "Client";
+        $driver->user->type = "client";
         $driver->user->save();
-        unlink('storage/' . $driver->Picture);
+        unlink('storage/' . $driver->image);
         $driver->delete();
         flash ("Driver rejected",'danger');
         return back();
@@ -60,7 +60,7 @@ class AdminController extends Controller {
             "name"         => "required|string",
             "address"      => "required|string",
             "city"         => "required|string",
-            'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
+            'phone_number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
         ]);
         $user->update($data);
         flash('details updated');

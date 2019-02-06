@@ -96,18 +96,18 @@
                 </div>
                 
                 <div class="form-group row">
-                    <label for="Phone_Number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number')
+                    <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number')
                             }} </label>
                     
                     <div class="col-md">
-                        <input id="Phone_Number" type="text" class="form-control{{ $errors->has('Phone_Number') ? '
+                        <input id="phone_number" type="text" class="form-control{{ $errors->has('phone_number') ? '
                                 is-invalid'
                                 : ''
-                                }}" name="Phone_Number" value="{{ old('Phone_Number') }}" required autofocus>
+                                }}" name="phone_number" value="{{ old('phone_number') }}" required autofocus>
                         
-                        @if ($errors->has('Phone_Number'))
+                        @if ($errors->has('phone_number'))
                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('Phone_Number') }}</strong>
+                                        <strong>{{ $errors->first('phone_number') }}</strong>
                                     </span>
                         @endif
                     </div>

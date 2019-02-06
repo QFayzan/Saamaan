@@ -10,10 +10,10 @@
                             <div class="card-header">Details of order with ID {{ $order->id }}.</div>
                             <div class="card-body">
                                 @foreach($order->details as $detail)
-                                    <h4>Details {{ $detail->Name }}</h4>
-                                    <div><b>Weight :</b> {{ $detail->Weight }}</div>
-                                    <div><b>Quantity :</b> {{ $detail->Quantity }}</div>
-                                    <div><b>Dimension :</b> {{ $detail->Dimension }}</div>
+                                    <h4>Details {{ $detail->name }}</h4>
+                                    <div><b>Weight :</b> {{ $detail->weight }}</div>
+                                    <div><b>Quantity :</b> {{ $detail->quantity }}</div>
+                                    <div><b>Dimension :</b> {{ $detail->dimension }}</div>
                                 @endforeach
 
                             </div>

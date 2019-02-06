@@ -45,10 +45,10 @@ class VehiclesController extends Controller
         //
         {
             $data = $this->validate($request,[
-                "Registration_Number"=> "required|string",
-                "Model Name"=>"required|string",
-                "Capacity"=>"required|string",
-                "Is_Available"=>"required|boolean"
+                "registration_number"=> "required|string",
+                "model_name"=>"required|string",
+                "capacity"=>"required|string",
+                "is_available"=>"required|boolean"
             ]);
             Vehicle::create($data);
             return redirect('/vehicles');
@@ -90,10 +90,10 @@ class VehiclesController extends Controller
     {
         //
         $data = $this->validate($request,[
-            "Registration_Number"=> "required|string",
-            "Model Name"=>"required|string",
-            "Capacity"=>"required|string",
-            "Is_Available"=>"required|boolean"
+            "registration_number"=> "required|string",
+            "model_name"=>"required|string",
+            "capacity"=>"required|string",
+            "is_available"=>"required|boolean"
         ]);
         $vehicle->update($data);
         return redirect('/vehicle');

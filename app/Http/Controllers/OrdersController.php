@@ -19,12 +19,12 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        switch (auth()->user()->Type)
+        switch (auth()->user()->type)
         {
-            case "Client":
+            case "client":
                 $orders = auth()->user()->orders;
                 break;
-            case "Driver":
+            case "driver":
                 {
                     if (auth()->user()->driver->order_picked)
                     {
@@ -66,13 +66,13 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         $data = $this->validate($request,[
-            "Name" => "required|string",
-            "Quantity" => "required|numeric",
-            "Weight" =>"required|numeric",
-            "Dimension" =>"required|numeric",
+            "name" => "required|string",
+            "quantity" => "required|numeric",
+            "weight" =>"required|numeric",
+            "dimension" =>"required|string",
         ]);
         $order = auth()->user()->orders()->create([
-            'Current_Status' => "waiting",
+            'current_status' => "waiting",
             'location'=>auth()->user()->city,
         ]);
         $order->details()->create($data);
@@ -115,8 +115,8 @@ class OrdersController extends Controller
     {
         //
         $data = $this->validate($request, [
-            "Placed_by" => "required|string",
-            "Picked_by" => "required|string",
+            "placed_by" => "required|string",
+            "picked_by" => "required|string",
             //"Current_Status"=> too advanced for now
         ]);
         $order->update($data);

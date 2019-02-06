@@ -10,7 +10,7 @@ class Driver extends Model
     use SoftDeletes;
     //
     protected $fillable =[
-        'Name','CNIC_Number','Phone_Number','Picture'
+        'name','cnic_number','phone_number','image'
         ];
     protected $dates = ['deleted at: '];
     
@@ -21,17 +21,17 @@ class Driver extends Model
     
     public function order()
     {
-        return $this->hasOne(Order::class,'Picked_by');
+        return $this->hasOne(Order::class,'picked_by');
     }
     
     public function getCnicAttribute()
     {
-        return $this->CNIC_Number;
+        return $this->cnic_number;
     }
     
     public function getPhoneAttribute()
     {
-        return $this->Phone_Number;
+        return $this->phone_number;
     }
     
     public function scopeUnVerified($query)

@@ -23,8 +23,8 @@
                 @foreach($orders as $order)
                     <tr>
                         <td>{{ $order->id }}</td>
-                        <td>{{ $order->Placed_by }}</td>
-                        <td>{{ $order->Picked_by }}</td>
+                        <td>{{ $order->placed_by }}</td>
+                        <td>{{ $order->picked_by }}</td>
                         <td>{{ $order->created_at }}</td>
                     </tr>
                 @endforeach

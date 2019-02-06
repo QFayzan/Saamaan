@@ -6,7 +6,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Show User Details</div>
+                        <div class="card-header">TBD Everything</div>
                         
                         <div class="card-body">
                         

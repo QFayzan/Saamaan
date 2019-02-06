@@ -24,7 +24,7 @@
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->Type }}</td>
+                        <td>{{ $user->type }}</td>
                         <td>{{ $user->created_at }}</td>
                         <td>
                             <div class="card-body">

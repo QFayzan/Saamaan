@@ -6,9 +6,10 @@
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
-            <input id="name" type="text" name="Name" class="form-control {{ $errors->has('Name') ? "is-invalid" : "" }}" value="{{ old('Name') }}" placeholder="Name">
-            @if($errors->has('Name'))
-                <strong class="invalid-feedback">{{ $errors->first('Name') }}</strong>
+            <input id="name" type="text" name="name" class="form-control {{ $errors->has('name') ? "is-invalid" : "" }}" value="{{
+             old('name') }}" placeholder="name">
+            @if($errors->has('name'))
+                <strong class="invalid-feedback">{{ $errors->first('name') }}</strong>
             @endif
         </div>
     </form>

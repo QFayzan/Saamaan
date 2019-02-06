@@ -71,11 +71,11 @@
                                 <div class="form-group row">
                                     <label for="cnic_number" class="col-sm-2 col-form-label">CNIC Number :</label>
                                     <div class="col-sm-10">
-                                        <input id="cnic_number" type="text" name="CNIC_Number" class="form-control {{ $errors->has
-                                    ('CNIC_Number') ? "is-invalid" : "" }}" value="{{ old('CNIC_Number') }}"
+                                        <input id="cnic_number" type="text" name="cnic_number" class="form-control {{ $errors->has
+                                    ('cnic_number') ? "is-invalid" : "" }}" value="{{ old('cnic_number') }}"
                                                placeholder="Your CNIC Number">
-                                        @if($errors->has('CNIC_Number'))
-                                            <strong class="invalid-feedback">{{ $errors->first('CNIC_Number') }}</strong>
+                                        @if($errors->has('cnic_number'))
+                                            <strong class="invalid-feedback">{{ $errors->first('cnic_number') }}</strong>
                                         @endif
                                     </div>
                                 </div>
@@ -83,13 +83,13 @@
                                     <label for="picture" class="col-sm-2 col-form-label">Picture :</label>
                                     <div class="col-sm-10">
                                         <div class="custom-file">
-                                            <input id="custom-file" type="file" name="Picture"
-                                                   class="custom-file-input {{ $errors->has('Picture') ? "is-invalid" : "" }}"
-                                                   value="{{ old('Picture') }}" placeholder="Picture">
+                                            <input id="custom-file" type="file" name="image"
+                                                   class="custom-file-input {{ $errors->has('image') ? "is-invalid" : "" }}"
+                                                   value="{{ old('image') }}" placeholder="image">
                                             <label class="custom-file-label" for="custom-file">Upload Your Image</label>
                                         </div>
-                                        @if($errors->has('Picture'))
-                                            <strong class="invalid-feedback">{{ $errors->first('Picture') }}</strong>
+                                        @if($errors->has('image'))
+                                            <strong class="invalid-feedback">{{ $errors->first('image') }}</strong>
                                         @endif
                                     </div>
                                 </div>

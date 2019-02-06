@@ -31,9 +31,10 @@
         </div>
         <div class="form-group">
             <label for="name">Phone_Number</label>
-            <input id="name" type="text" name="Phone_Number" class="form-control {{ $errors->has('Phone_Number') ? "is-invalid" : "" }}"
-                   value="{{ old('Phone_Number') ? old('Phone_Number') :$user->Phone_Number }}" placeholder="03XX-XXXXXXX">
-            @if($errors->has('Phone_Number'))
+            <input id="name" type="text" name="phone_number" class="form-control {{ $errors->has('phone_number') ? "is-invalid"
+            : "" }}"
+                   value="{{ old('phone_number') ? old('phone_number') :$user->phone_number }}" placeholder="03XX-XXXXXXX">
+            @if($errors->has('phone_number'))
                 <strong class="invalid-feedback">{{ $errors->first('Phone_Number') }}</strong>
             @endif
         </div>

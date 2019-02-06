@@ -17,8 +17,8 @@ class UsersTableSeeder extends Seeder {
             'password'     => bcrypt('secret'),
             'address'      => 'Somewhere in Lahore',
             'city'         => 'lahore',
-            'Type'         => 'Client',
-            'Phone_Number' => '0321-4388172'
+            'type'         => 'client',
+            'phone_number' => '0321-4388172'
         ]);
         DB::table('users')->insert([
             'name'         => "Admin",
@@ -26,8 +26,8 @@ class UsersTableSeeder extends Seeder {
             'password'     => bcrypt('secret'),
             'address'      => 'Somewhere in Lahore',
             'city'         => 'lahore',
-            'Type'         => 'Admin',
-            'Phone_Number' => '0321-4488172'
+            'type'         => 'admin',
+            'phone_number' => '0321-4488172'
         ]);
         DB::table('users')->insert([
             'name'         => "Driver",
@@ -35,16 +35,15 @@ class UsersTableSeeder extends Seeder {
             'password'     => bcrypt('secret'),
             'address'      => 'Somewhere in Lahore',
             'city'         => 'lahore',
-            'Type'         => 'Driver',
-            'Phone_Number' => '0321-4448172'
+            'type'         => 'driver',
+            'phone_number' => '0321-4448172'
         ]);
         DB::table('drivers')->insert([
-            'Name'         => "Driver",
+            'name'         => "Driver",
             'user_id'      => 3,
-            'CNIC_Number'  => '102421-4157483-1',
-            'Phone_Number' => '0321-4448172',
+            'cnic_number'  => '102421-4157483-1',
             'verified'     => true,
-            'Picture'      => 'default.png'
+            'image'      => 'default.png'
         ]);
     }
 }

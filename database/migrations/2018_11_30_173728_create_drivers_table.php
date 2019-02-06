@@ -17,10 +17,9 @@ class CreateDriversTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->boolean('order_picked')->default(false);
-            $table->string('Name');
-            $table->string('CNIC_Number');
-            $table->string('Phone_Number');
-            $table->string('Picture')->nullable();
+            $table->string('name');
+            $table->string('cnic_number');
+            $table->string('image')->nullable();
             $table->boolean('verified')->default(false);
             $table->softDeletes();
             $table->timestamps();

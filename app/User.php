@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     protected $dates = ['deleted at: '];
     protected $fillable = [
-        'name', 'email', 'password','address','city','Phone_Number'];
+        'name', 'email', 'password','address','city','phone_number'];
     
     /**
      * The attributes that should be hidden for arrays.
@@ -33,7 +33,7 @@ class User extends Authenticatable
     
     public function orders()
     {
-        return $this->hasMany(Order::class,'Placed_by');
+        return $this->hasMany(Order::class,'placed_by');
     }
     
     public function driver()

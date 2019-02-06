@@ -59,8 +59,8 @@ Route::get('/order/{order}/details/','order_detailscontroller@index');
 Route::get('/order/{order}/details/create','order_detailscontroller@create')->name('details.create');
 Route::post('/order/{order}/details/store','order_detailscontroller@store')->name('details.store');
 Route::get('/order/{order}/details/{order_details}','order_detailscontroller@show')->name('details.show');
-Route::get('/order/{order}/details/{order_details}/edit','order_detailscontroller@edit');
-Route::patch('/order/{order}/details/{order_details}','order_detailscontroller@update');
+Route::get('/order/{order}/details/{order_details}/edit','order_detailscontroller@edit')->name('details.edit');
+Route::patch('/details/{detail}','order_detailscontroller@update')->name('details.update');
 Route::delete('/order/{order}/details/{order_details}','order_detailscontroller@destroy');
 //Admin panel stuff here put in user controller in admin() function
 Route::get('/admin/','userscontroller@admin')->name('admin');

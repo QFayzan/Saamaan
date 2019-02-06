@@ -30,7 +30,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->Type == 'Admin')
+        if (auth()->user()->type == 'admin')
             return redirect()->route('admin');
         
         return view('users.home');
@@ -108,7 +108,7 @@ class UsersController extends Controller
             "name"         => "required|string",
             "address"      => "required|string",
             "city"         => "required|string",
-            'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
+            'phone_number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
         ]);
         $user->update($data);
         flash('details updated');
@@ -120,7 +120,7 @@ class UsersController extends Controller
             "name"         => "required|string",
             "address"      => "required|string",
             "city"         => "required|string",
-            'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
+            'phone_number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
         ]);
         $user->update($data);
         flash('details updated');

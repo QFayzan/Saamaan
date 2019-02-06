@@ -1,4 +1,4 @@
-@extends( Auth::user()->Type === 'Driver'  ?  'driver.layout' : 'user.layout' )
+@extends( Auth::user()->type === 'Driver'  ?  'driver.layout' : 'user.layout' )
 
 @section('content')
     <main class="py-4">

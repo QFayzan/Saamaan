@@ -11,8 +11,8 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                @if(auth()->user()->Type=='Driver')
-                    <img src="/storage/{{ auth()->user()->driver->Picture }}"width="30" height="30" alt="User Image">
+                @if(auth()->user()->type=='driver')
+                    <img src="/storage/{{ auth()->user()->driver->image }}"width="30" height="30" alt="User Image">
                 @else()
                     <img src="/img/profile.png" class="img-circle elevation-2" alt="User Image">
                 @endif
@@ -37,7 +37,7 @@
                         </p>
                     </a>
                 </li>
-                @if(auth()->user()->Type=='Client')
+                @if(auth()->user()->type=='client')
                     <li class="nav-item">
                         <a href="{{ route('drivers.create') }}" class="nav-link">
                             <i class="nav-icon fas fa-car"></i>
