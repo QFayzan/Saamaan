@@ -54,16 +54,22 @@ class DriversController extends Controller
         
         if (Auth::attempt($credentials))
         {
-            $data = $this->validate($request, [
+            $driver_data = $this->validate($request, [
                 "cnic_number" => ['required', 'string', 'regex:/^\d{5}-\d{7}-\d{1}$/i'],
                 "image"=> 'required|mimes:png,jpg,jpeg|max:2048'
             ]);
-            $data['name'] = $user->name;
+            $vehicle_data = $this->validate($request, [
+                'registration_number'=> 'required|string',
+                'model_name' => 'required|string',
+                'capacity'=> 'required|string',
+                'type' => 'required|string',
+            ]);
+            $driver_data['name'] = $user->name;
             //picture implementation here
-            $data['image'] = now()->format('YmdU') . "." . $request->image->getClientOriginalExtension();
-            $request->image->storeAs('public', $data['image']);
-            
-            $user->driver()->create($data);
+            $driver_data['image'] = now()->format('YmdU') . "." . $request->image->getClientOriginalExtension();
+            $request->image->storeAs('public', $driver_data['image']);
+            $driver = $user->driver()->create($driver_data);
+            $driver->vehicles()->create($vehicle_data);
             $user->type = "driver";
             $user->save();
             flash('Request Sent');

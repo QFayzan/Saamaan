@@ -18,7 +18,9 @@ class CreateVehiclesTable extends Migration
             $table->string('registration_number');
             $table->string('model_name');
             $table->string('capacity');
-            $table->string('is_available');
+            $table->string('type');
+            $table->boolean('is_available')->nullable();
+            $table->integer('owner_id');
             $table->timestamps();
         });
     }

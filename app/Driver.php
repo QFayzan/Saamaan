@@ -24,6 +24,10 @@ class Driver extends Model
         return $this->hasOne(Order::class,'picked_by');
     }
     
+    public function vehicles() {
+        return $this->hasMany(Vehicle::class, 'owner_id');
+    }
+    
     public function getCnicAttribute()
     {
         return $this->cnic_number;
