@@ -28,8 +28,9 @@ class OrdersController extends Controller
                 {
                     if (auth()->user()->driver->order_picked)
                     {
-                        $order[0] = auth()->user()->driver->order;
-                        $orders = collect( $order );
+                        $order = Order::find(auth()->user()->driver->order_picked);
+                        
+                            $orders = collect( compact('order') );
                         break;
                     }
                     $DriverLocation=auth()->user()->city;

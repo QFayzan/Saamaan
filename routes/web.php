@@ -31,6 +31,7 @@ Route::get('/drivers','driverscontroller@index');
 Route::get('/drivers/create','driverscontroller@create')->name('drivers.create');
 Route::post('/drivers/store','driverscontroller@store')->name('drivers.store');
 Route::get('/drivers/{driver}','driverscontroller@show');
+Route::get('/drivers/orders/previous','driverscontroller@previous')->name('drivers.previous');
 Route::get('/drivers/{driver}/edit','driverscontoller@edit');
 Route::patch('/drivers/{driver}','driverscontroller@update');
 Route::delete('/drivers/{driver}','driverscontroller@destroy')->name('drivers.destroy');

@@ -40,6 +40,9 @@ class Order extends Model
     {
         return $query->where('location',$DriverLocation);
     }
-    
+    public function scopeCompleted($query)
+    {
+        return $query->where('current_status','completed');
+    }
     
 }

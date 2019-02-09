@@ -149,10 +149,9 @@ class DriversController extends Controller
         $order->picked_by = $driver->id;
         $order->current_status = "inProcess";
         $order->save();
-        
-        $driver->order_picked = true;
+        $driver->order_picked = $order->id;
         $driver->save();
-        
+        flash('Order Picked');
         return redirect()->route('dashboard');
     }
     
@@ -161,13 +160,19 @@ class DriversController extends Controller
         $driver = auth()->user()->driver;
         
         $order->current_status = "completed";
+        $order->updated_at = now();
         $order->save();
         
-        $driver->order_picked = false;
+        $driver->order_picked = null;
         $driver->save();
         
         return redirect()->route('dashboard');
     }
     
+    public function previous()
+    {
+        $orders=auth()->user()->driver->previousOrders;
+        return view('Orders.previous' ,compact('orders'));
+    }
     
 }

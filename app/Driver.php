@@ -21,9 +21,14 @@ class Driver extends Model
     
     public function order()
     {
-        return $this->hasOne(Order::class,'picked_by');
+        return $this->hasMany(Order::class,'picked_by');
     }
-    
+    public function previousOrders()
+    {
+        return $this->hasMany(Order::class,'picked_by')->completed();
+        
+    }
+
     public function vehicles() {
         return $this->hasMany(Vehicle::class, 'owner_id');
     }

@@ -16,15 +16,22 @@
     
     @yield('sidebar')
     <div class="content-wrapper">
-    <main class="py-4">
-        @yield('content')
-    </main>
+        <main class="py-4">
+            @yield('content')
+        </main>
     
     </div>
     @include('layouts.footer')
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/notify.min.js') }}"></script>
+<script src="{{asset('js/multi-step-modal.js')}}"></script>
 @include('alert')
+<script>
+    sendEvent = function () {
+        $('#apply-for-driver').trigger('next.m.2');
+    }
+
+</script>
 </body>
 </html>

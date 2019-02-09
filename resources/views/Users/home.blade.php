@@ -34,7 +34,7 @@
             </div>
             
             {{--    Options For Driver Only  --}}
-            @if(auth()->user()->type == "Driver" )
+            @if(auth()->user()->type == "driver" )
                 <h2 class="text-center">Driver Options</h2>
                 <hr>
                 <div class="row justify-content-around">
@@ -59,7 +59,7 @@
                                 <div class="card-header">View Previous Orders</div>
                                 
                                 <div class="card-body">
-                                    <a href="{{route('orders.display')}}" class="btn btn-primary">
+                                    <a href="{{route('drivers.previous')}}" class="btn btn-primary">
                                         View Your Previous Order(s)
                                     </a>
                                 

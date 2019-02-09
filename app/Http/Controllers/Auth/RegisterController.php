@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'address' =>['required', 'string',],
             'city' =>['required', 'string',],
-            'Phone_Number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
+            'phone_number' => ['required', 'string', 'regex:/^(03|\+923)[0-9]{2}?-[0-9]{7}$/i'],
         ]);
     }
 
@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'address' =>$data['address'],
             'city' =>$data['city'],
-            'Phone_Number' =>$data['Phone_Number'],
+            'phone_number' =>$data['phone_number'],
         ]);
     }
 }
