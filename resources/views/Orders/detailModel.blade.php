@@ -5,7 +5,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Some general
-                                                                   information</h5>
+                        information</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -16,7 +16,8 @@
                     <div class="form-group">
                         <label for="name">Brief explanation of order</label>
                         <input id="name" type="text" name="name" class="form-control {{
-                                                    $errors->has('name') ? "is-invalid" : "" }}" value="{{ $detail->name }}"
+                                                    $errors->has('name') ? "is-invalid" : "" }}"
+                               value="{{ $detail->name }}"
                                placeholder="name">
                         @if($errors->has('name'))
                             <strong class="invalid-feedback">{{ $errors->first('name') }}</strong>
@@ -24,24 +25,23 @@
                     </div>
                     <div class="form-group">
                         <label for="quantity">Quantity or number of items in the
-                                              order</label>
+                            order</label>
                         <input id="quantity" type="text" name="quantity" class="form-control {{ $errors->has('quantity') ?
                         "is-invalid" : "" }}" value="{{ $detail->quantity }}" placeholder="quantity">
                         @if($errors->has('quantity'))
                             <strong class="invalid-feedback">{{ $errors->first('quantity') }}</strong>
                         @endif
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="category">Category </label>
                         <select name="category" id="category" class="form-control {{ $errors->has('dimension') ? "is-invalid"
                         : "" }}">
-                            <option value="glassware">Glassware</option>
-                            <option selected value="metals">Metals</option>
-                            <option value="parcel">Parcel</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="furniture">Furniture</option>
-                            <option value="construction-materials">Construction Materials</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->name}}" {{ $detail->category == $category->name ? 'selected' : ""}}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
                         </select>
                         @if($errors->has('category'))
                             <strong class="invalid-feedback">{{ $errors->first('category') }}</strong>

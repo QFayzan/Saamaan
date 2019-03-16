@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Order_Category;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -41,8 +42,10 @@ class OrdersController extends Controller
             default:
                 return back();
         }
-        
-        return view('Orders.index', compact('orders'));
+
+        $categories = Order_Category::all();
+
+        return view('Orders.index', compact('orders','categories'));
     }
     
     /**
@@ -69,7 +72,6 @@ class OrdersController extends Controller
         $data = $this->validate($request,[
             "name" => "required|string",
             "quantity" => "required|numeric",
-            "weight" =>"required|numeric",
             "category" =>"required|string",
         ]);
         $order = auth()->user()->orders()->create([

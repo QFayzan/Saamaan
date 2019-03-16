@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Driver;
+use App\Order_Category;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,9 @@ class UsersController extends Controller
         if (auth()->user()->type == 'admin')
             return redirect()->route('admin');
         
-        return view('users.home');
+        
+        $categories = Order_Category::all();
+        return view('users.home',compact('categories'));
         
         
     }

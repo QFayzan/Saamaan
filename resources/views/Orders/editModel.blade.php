@@ -14,7 +14,8 @@
                     <div class="form-group">
                         <label for="name">Brief explanation of order</label>
                         <input id="name" type="text" name="name" class="form-control {{
-                                                    $errors->has('name') ? "is-invalid" : "" }}" value="{{ old('name') }}"
+                                                    $errors->has('name') ? "is-invalid" : "" }}"
+                               value="{{ old('name') }}"
                                placeholder="name">
                         @if($errors->has('name'))
                             <strong class="invalid-feedback">{{ $errors->first('name') }}</strong>
@@ -32,12 +33,10 @@
                         <label for="category">Category </label>
                         <select name="category" id="category" class="form-control {{ $errors->has('dimension') ? "is-invalid"
                         : "" }}">
-                            <option value="glassware">Glassware</option>
-                            <option selected value="metals">Metals</option>
-                            <option value="parcel">Parcel</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="furniture">Furniture</option>
-                            <option value="construction-materials">Construction Materials</option>
+                            <option disabled selected>Select Category</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->name }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
                         @if($errors->has('category'))
                             <strong class="invalid-feedback">{{ $errors->first('category') }}</strong>

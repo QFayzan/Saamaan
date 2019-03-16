@@ -29,9 +29,8 @@
                                         @endif
                                         <ul>
                                             <li><b>Name : </b>{{ $detail->name }}</li>
-                                            <li><b>Weight :</b> {{ $detail->weight }}</li>
                                             <li><b>Quantity :</b> {{ $detail->quantity }}</li>
-                                            <li><b>Dimension :</b> {{ $detail->dimension }}</li>
+                                            <li><b>Category :</b> {{ $detail->category }}</li>
                                             <li><b>Placed :</b> {{ $detail->updated_at->diffForHumans() }}</li>
                                         </ul>
                                         @include("Orders.detailModel")

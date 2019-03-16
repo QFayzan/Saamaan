@@ -46,8 +46,7 @@ class Order_DetailsController extends Controller {
         $data = $this->validate($request, [
             "name"      => "required|string",
             "quantity"  => "required|numeric",
-            "weight"    => "required|numeric",
-            "dimension" => "required|string",
+            "category" => "required|string",
         ]);
         $order->details()->create($data);
         flash("Details added successfully");

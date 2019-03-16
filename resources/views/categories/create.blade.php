@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Create a new Category</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('categories.create')}}">
+                        <form method="POST" action="{{ route('categories.store')}}">
                             @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
