@@ -11,21 +11,19 @@
                                     <h3>Order Placed By: {{ $order->placedby->name }}</h3>
                                     <h3>Contact: {{ $order->placedby->phone_number }}</h3>
                                 </div>
-                                
                                 <div class="card-body">
-                                    
                                     <h3>
                                         Status : {{ $order->status }}
                                         <small class="badge badge-light">Items {{ $order->details->count() }}</small>
                                     </h3>
                                     
                                     @foreach($order->details as $detail)
-                                        Item No #
-                                        {{ $loop->iteration }}
-                                        @if(auth()->user()->type =="client")
+                                        
+                                        @if(auth()->user()->type =="client" and $order->status=="waiting")
+                                        
                                         <h5>
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#Edit-Modal{{ $detail->id }}">Item No #
+                                                    data-target="#Edit-Modal{{ $detail->id }}">Edit Order Details
                                                 {{ $loop->iteration }}</button>
                                         </h5>
                                         @endif
@@ -55,7 +53,7 @@
                                         
                                     @endif
                                 </div>
-                                @if(auth()->user()->type =="client" )
+                                @if(auth()->user()->type =="client" and $order->status=="waiting" )
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#Modal{{ $order->id }}">Add More Items to the Order.
                                 </button>

@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Model -->
+            <!-- Modal -->
             <form class="modal multi-step" id="apply-for-driver">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -51,8 +51,7 @@
                             <h4 class="modal-title step-2" data-step="2">Step 2</h4>
                         </div>
                         <form action="{{ route('drivers.store') }}" method="post" enctype="multipart/form-data">
-                        <div class="modal-body step step-1">
-                            This is step 1.
+                            <div class="modal-body step step-1">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="password" class="col-sm-2 col-form-label">Password:</label>
@@ -65,7 +64,7 @@
                                         @endif
                                     </div>
                                 </div>
-        
+                                
                                 <div class="form-group row">
                                     <label for="cnic_number" class="col-sm-2 col-form-label">CNIC Number:</label>
                                     <div class="col-sm-10">
@@ -91,18 +90,64 @@
                                         @endif
                                     </div>
                                 </div>
+                            </div>
+                            <div class="modal-body step step-2">
+                                @csrf
+                                <div class="form-group row">
+                                    <label for="registration_number" class="col-sm-2 col-form-label">Vehicle Number :</label>
+                                    <div class="col-sm-10">
+                                        <input id="registration_number" type="text" name="registration_number" class="form-control {{ $errors->has
+                                    ('registration_number') ? "is-invalid" : "" }}" value="{{ old('registration_number') }}"
+                                               placeholder="Registation Number">
+                                        @if($errors->has('registration_number'))
+                                            <strong class="invalid-feedback">{{ $errors->first('registration_number') }}</strong>
+                                            @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="model_name" class="col-sm-2 col-form-label">Model Name:</label>
+                                    <div class="col-sm-10">
+                                        <input id="model_name" type="text" name="model_name" class="form-control {{ $errors->has
+                                    ('model_name') ? "is-invalid" : "" }}" value="{{ old('model_name') }}"
+                                               placeholder="Registation Number">
+                                        @if($errors->has('model_name'))
+                                            <strong class="invalid-feedback">{{ $errors->first('model_name') }}</strong>
+                                            @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="capacity" class="col-sm-2 col-form-label">Weight Capacity:</label>
+                                    <div class="col-sm-10">
+                                        <input id="capacity" type="text" name="capacity" class="form-control {{ $errors->has
+                                    ('capacity') ? "is-invalid" : "" }}" value="{{ old('capacity') }}"
+                                               placeholder="Weight Capacity">
+                                        @if($errors->has('capacity'))
+                                            <strong class="invalid-feedback">{{ $errors->first('capacity') }}</strong>
+                                            @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="type" class="col-sm-2 col-form-label">Vehicle Type:</label>
+                                    <div class="col-sm-10">
+                                        <input id="type" type="text" name="type" class="form-control {{ $errors->has
+                                    ('type') ? "is-invalid" : "" }}" value="{{ old('type') }}"
+                                               placeholder="Type">
+                                        @if($errors->has('type'))
+                                            <strong class="invalid-feedback">{{ $errors->first('type') }}</strong>
+                                            @endif
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Apply</button>
+                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent
+                            ('#apply-for-driver', 2)">Continue
+                                    </button>
+                                
+                                </div>
+                        </form>
                         </div>
-                        <div class="modal-body step step-2">
-                            This is the final step
-                        
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent
-                            ('#apply-for-driver', 2)">Continue</button>
-                            <button type="submit" class="btn btn-primary">Apply</button>
-                        </div>
-                    </div>
                 </div>
             </form>
         </div>

@@ -10,26 +10,35 @@
     
     <div class="container-fluid">
         <div class="table-responsive">
-            <table class="table">
+            <table class="table" id="orders_table">
                 <thead>
                 <tr>
                     <th> ID</th>
                     <th> Placed By (Client ID)</th>
                     <th> Picked By (Driver ID)</th>
                     <th> Created On</th>
+                    <th> Status </th>
                 </tr>
                 </thead>
-                <tbody>
-                @foreach($orders as $order)
-                    <tr>
-                        <td>{{ $order->id }}</td>
-                        <td>{{ $order->placed_by }}</td>
-                        <td>{{ $order->picked_by }}</td>
-                        <td>{{ $order->created_at }}</td>
-                    </tr>
-                @endforeach
-                </tbody>
             </table>
         </div>
     </div>
 @endsection
+@push('js')
+    <script>
+        $('#orders_table').dataTable({
+            data: {!! $orders !!},
+            columns: [
+                {data: 'id'},
+                {data: 'placed_by'},
+                {data: 'picked_by'},
+                {data: 'created_at'},
+                {data: 'current_status'},
+            ],
+            dom: 'Bfrtip',
+            buttons: [
+                'pdfHtml5'
+            ]
+        });
+    </script>
+@endpush

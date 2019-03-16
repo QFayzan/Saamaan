@@ -10,7 +10,7 @@
     
     <div class="container-fluid">
         <div class="table-responsive">
-            <table class="table">
+            <table class="table" id="user-table">
                 <thead>
                 <tr>
                     <th> Register ID</th>
@@ -19,24 +19,25 @@
                     <th> Joined on</th>
                 </tr>
                 </thead>
-                <tbody>
-                @foreach($users as $user)
-                    <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->type }}</td>
-                        <td>{{ $user->created_at }}</td>
-                        <td>
-                            <div class="card-body">
-                                <a href="{{route('admin.user.edit',auth()->id())}}" class="btn btn-primary" type="submit">
-                                    Edit User Details
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
             </table>
         </div>
     </div>
 @endsection
+
+@push('js')
+    <script>
+        $('#user-table').dataTable({
+            data: {!! $users !!},
+            columns: [
+                {data: 'id'},
+                {data: 'name'},
+                {data: 'type'},
+                {data: 'created_at'},
+            ],
+            dom: 'Bfrtip',
+            buttons: [
+                'pdfHtml5'
+            ]
+        });
+    </script>
+@endpush

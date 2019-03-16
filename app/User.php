@@ -41,4 +41,9 @@ class User extends Authenticatable
         return $this->hasOne(Driver::class);
     }
     
+    public function scopeNoAdmin($query)
+    {
+        return $query->where('type','!=','admin');
+    }
+    
 }

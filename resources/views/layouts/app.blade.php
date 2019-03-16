@@ -8,7 +8,10 @@
     
     <title>Saamaan</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {{--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.css"/>--}}
+    
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -26,7 +29,12 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/notify.min.js') }}"></script>
 <script src="{{asset('js/multi-step-modal.js')}}"></script>
+<script src="{{asset('datatables.min.js')}}"></script>
+{{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>--}}
+{{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>--}}
+{{--<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.js"></script>--}}
 @include('alert')
+@stack('js')
 <script>
     sendEvent = function () {
         $('#apply-for-driver').trigger('next.m.2');

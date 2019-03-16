@@ -22,7 +22,7 @@
                                     <small>{{ $driver->cnic }}</small>
                                 </h5>
                                 <h5>Phone :
-                                    <small>{{ $driver->user()->phone_number }}</small>
+                                    <small>{{ $driver->user->phone_number }}</small>
                                 </h5>
                                 <h5>Image : <img src="storage/{{ $driver->image  }}" height="100" width="100"></h5>
                                 <div class="button-container">
@@ -57,7 +57,7 @@
                     <div class="card-header">Check Ongoing Transactions</div>
                     <div class="card-body">
                         <a href="{{ route('admin.view.current') }}" class=" btn btn-primary">
-                            View all in progress orders
+                            View All In-Progress Orders
                         </a>
                     </div>
                 </div>
@@ -74,8 +74,5 @@
             </div>
         </div>
     </main>
-    
-      
-    
     
 @endsection

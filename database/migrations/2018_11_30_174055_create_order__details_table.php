@@ -6,7 +6,10 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateOrderDetailsTable extends Migration
 {
-    /**
+    /** todo remove weight  add categories system for types of product and vehicle like "electronics" "building materials etc"
+     *
+     *
+     *
      * Run the migrations.
      *
      * @return void
@@ -18,8 +21,8 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('order_id');
             $table->string('name');
             $table->string('quantity');
-            $table->string('weight');
-            $table->string('dimension');
+            $table->string('category');
+            $table->string('dimension')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

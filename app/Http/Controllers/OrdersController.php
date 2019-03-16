@@ -70,7 +70,7 @@ class OrdersController extends Controller
             "name" => "required|string",
             "quantity" => "required|numeric",
             "weight" =>"required|numeric",
-            "dimension" =>"required|string",
+            "category" =>"required|string",
         ]);
         $order = auth()->user()->orders()->create([
             'current_status' => "waiting",

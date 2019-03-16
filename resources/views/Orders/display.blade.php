@@ -13,7 +13,8 @@
                                     <h4>Details {{ $detail->name }}</h4>
                                     <div><b>Weight :</b> {{ $detail->weight }}</div>
                                     <div><b>Quantity :</b> {{ $detail->quantity }}</div>
-                                    <div><b>Dimension :</b> {{ $detail->dimension }}</div>
+                                    <div><b>Category :</b> {{ $detail->category }}</div>
+                                
                                 @endforeach
                             </div>
                         </div>

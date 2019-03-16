@@ -16,9 +16,10 @@ class AdminController extends Controller {
         $this->middleware('auth');
     }
     
+ 
     public function users()
     {
-        $users = User::oldest()->get();
+        $users = User::oldest()->noAdmin()->get();
         return view('admin.users')->with(compact('users'));
     }
     
@@ -71,6 +72,14 @@ class AdminController extends Controller {
     {
       
         return view('admin.edit')->with(compact('user'));
+    }
+    
+    public function deleteUser(User $user)
+    {
+        $user->delete();
+        flash('User Deleted');
+        return back();
+    
     }
     
     

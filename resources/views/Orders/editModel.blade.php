@@ -29,24 +29,18 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="weight">Weight of the order this must be in kilograms</label>
-                        <input id="weight" type="text" name="weight" class="form-control {{ $errors->has('weight') ?
-                        "is-invalid" : "" }}" value="{{ old('weight') }}" placeholder="weight">
-                        @if($errors->has('weight in KG'))
-                            <strong class="invalid-feedback">{{ $errors->first('weight') }}</strong>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="dimension">Dimension </label>
-                        <select name="dimension" id="dimension" class="form-control {{ $errors->has('dimension') ? "is-invalid"
+                        <label for="category">Category </label>
+                        <select name="category" id="category" class="form-control {{ $errors->has('dimension') ? "is-invalid"
                         : "" }}">
-                            <option value="small">Small</option>
-                            <option selected value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="loader">Huge</option>
+                            <option value="glassware">Glassware</option>
+                            <option selected value="metals">Metals</option>
+                            <option value="parcel">Parcel</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="furniture">Furniture</option>
+                            <option value="construction-materials">Construction Materials</option>
                         </select>
-                        @if($errors->has('dimension'))
-                            <strong class="invalid-feedback">{{ $errors->first('dimension') }}</strong>
+                        @if($errors->has('category'))
+                            <strong class="invalid-feedback">{{ $errors->first('category') }}</strong>
                         @endif
                     </div>
                 </div>
