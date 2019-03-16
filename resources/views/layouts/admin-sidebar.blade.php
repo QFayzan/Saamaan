@@ -33,7 +33,34 @@
                         </p>
                     </a>
                 </li>
-                
+
+                <li class="nav-item">
+                    <a href="{{ route('categories.create') }}" class="nav-link">
+                        <i class="nav-icon fas fa-plus"></i>
+                        <p>
+                            Add Category
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('categories.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-list-alt"></i>
+                        <p>
+                            Categories
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tools"></i>
+                        <p>
+                            Admin
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="/users/admindisplay" class="nav-link" >
                         <i class="nav-icon fas fa-user"></i>
