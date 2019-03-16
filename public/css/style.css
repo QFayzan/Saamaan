@@ -86,3 +86,9 @@
   display        : inline;
   vertical-align : middle;
 }
+
+.dashboard-btn {
+  width: 100px;
+  height: 100px;
+}
+

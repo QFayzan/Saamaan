@@ -64,6 +64,9 @@ Route::get('/order/{order}/details/{order_details}/edit','order_detailscontrolle
 Route::patch('/details/{detail}','order_detailscontroller@update')->name('details.update');
 Route::delete('/order/{order}/details/{order_details}','order_detailscontroller@destroy');
 //Admin panel stuff here put in user controller in admin() function
+
+Route::resource('categories', 'OrderCategoryController');
+
 Route::get('/admin/','userscontroller@admin')->name('admin');
 Route::post('/admin/promote/{driver}','admincontroller@promote')->name('admin.promote');
 Route::post('/admin/demote/{driver}','admincontroller@refuse')->name('admin.refuse');
