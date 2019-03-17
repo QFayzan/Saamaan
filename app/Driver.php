@@ -12,13 +12,19 @@ class Driver extends Model
     protected $fillable =[
         'name','cnic_number','phone_number','image'
         ];
+
     protected $dates = ['deleted at: '];
     
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    
+
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
+    }
+
     public function order()
     {
         return $this->hasMany(Order::class,'picked_by');

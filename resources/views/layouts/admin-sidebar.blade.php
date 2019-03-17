@@ -64,6 +64,24 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ route('organizations.create') }}" class="nav-link {{ Nav::isRoute('organizations.create') }}">
+                        <i class="nav-icon fas fa-plus"></i>
+                        <p>
+                            Add Organization
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('organizations.index') }}" class="nav-link {{ Nav::isRoute('organizations.index') }}">
+                        <i class="nav-icon fas fa-list-alt"></i>
+                        <p>
+                            Organizations
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{route('admin.view.users')}}" class="nav-link {{ Nav::isRoute('admin.view.users') }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
