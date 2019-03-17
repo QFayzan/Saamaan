@@ -1,24 +1,21 @@
 @extends('layouts.user')
 
 @section('content')
-    <div class="col-md-8 mx-auto">
-        <div class="card">
-            <div class="card-header">Show User Details</div>
+    
+    <div class="card">
+        <div class="card-header">Show User Details</div>
+        
+        <div class="card-body">
+            <table class="dark">
+                <tr>Name: {{ auth()->user()->name }}</tr>
+                <tr>Role: {{ auth()->user()->type }} </tr>
+                <tr>E-Mail: {{ auth()->user()->email }}  </tr>
+                <tr>Address: {{ auth()->user()->address }} </tr>
+                <tr>City: {{ auth()->user()->city }} </tr>
+                <tr>Phone Number: {{ auth()->user()->phone_number }}</tr>
             
-            <div class="card-body">
-                <div><b>Username: </b>{{ auth()->user()->name }}</div>
-                <div><b>You are a: </b> {{ auth()->user()->type }}</div>
-                <div><b>E-Mail: </b>{{ auth()->user()->email }}</div>
-                <div><b>Address: </b>{{ auth()->user()->address }}</div>
-                <div><b>City: </b>{{ auth()->user()->city }}</div>
-                <div><b>Phone Number: </b>{{ auth()->user()->phone_number }}</div>
-            </div>
-            <div class="card-body">
-                <a href="{{route('user.edit',auth()->id())}}" class="btn btn-primary" type="submit">
-                    Edit your details
-                </a>
-            
-            </div>
+            </table>
         </div>
     </div>
+
 @endsection

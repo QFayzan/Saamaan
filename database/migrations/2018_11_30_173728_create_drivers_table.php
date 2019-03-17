@@ -21,6 +21,7 @@ class CreateDriversTable extends Migration
             $table->string('cnic_number');
             $table->string('image')->nullable();
             $table->boolean('verified')->default(false);
+            $table->string('organization_id');
             $table->softDeletes();
             $table->timestamps();
         });
