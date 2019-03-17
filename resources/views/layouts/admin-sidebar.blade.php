@@ -1,6 +1,6 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-light-secondary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route('admin')}}" class="brand-link">
+    <a href="{{route('admin')}}" class="brand-link bg-primary">
         <img src="/img/logo.png" alt="Saamaan Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light">Saamaan</span>
@@ -26,7 +26,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('admin') }}" class="nav-link">
+                    <a href="{{ route('admin') }}" class="nav-link {{ Nav::isRoute('admin') }}">
                         <i class="nav-icon fas fa-tools" ></i>
                         <p>
                             Admin
@@ -35,7 +35,18 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('categories.create') }}" class="nav-link">
+                    <a href="/users/admindisplay" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Profile
+                        </p>
+                    </a>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a href="{{ route('categories.create') }}" class="nav-link {{ Nav::isRoute('categories.create') }}">
                         <i class="nav-icon fas fa-plus"></i>
                         <p>
                             Add Category
@@ -44,7 +55,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('categories.index') }}" class="nav-link">
+                    <a href="{{ route('categories.index') }}" class="nav-link {{ Nav::isRoute('categories.index') }}">
                         <i class="nav-icon fas fa-list-alt"></i>
                         <p>
                             Categories
@@ -53,22 +64,35 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tools"></i>
+                    <a href="{{route('admin.view.users')}}" class="nav-link {{ Nav::isRoute('admin.view.users') }}">
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Admin
+                            Users
                         </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="/users/admindisplay" class="nav-link" >
-                        <i class="nav-icon fas fa-user"></i>
+                    <a href="{{ route('admin.view.current') }}" class="nav-link  {{ Nav::isRoute('admin.view.current') }}">
+                        <i class="nav-icon fas fa-truck"></i>
                         <p>
-                            Profile
+                            Orders In Progress
                         </p>
                     </a>
                 </li>
+
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.view.orders') }}" class="nav-link  {{ Nav::isRoute('admin.view.orders') }}">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            Orders Archive
+                        </p>
+                    </a>
+                </li>
+
+
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}"
                        onclick="event.preventDefault();

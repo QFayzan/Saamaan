@@ -1,6 +1,6 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link">
+    <a href="/" class="brand-link bg-primary">
         <img src="/img/logo.png" alt="Saamaan Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light">Saamaan</span>
@@ -30,23 +30,14 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="nav-link">
+                    <a href="{{ route('dashboard') }}" class="nav-link {{ Nav::isRoute('dashboard') }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                @if(auth()->user()->type=='client')
-                    <li class="nav-item">
-                        <a href="{{ route('drivers.create') }}" class="nav-link">
-                            <i class="nav-icon fas fa-car"></i>
-                            <p>
-                                Be a Driver
-                            </p>
-                        </a>
-                    </li>
-                @endif
+
                 <li class="nav-item">
                     <a href="/users/display" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
@@ -64,7 +55,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('user.password') }}" class="nav-link">
+                    <a href="{{ route('user.password') }}" class="nav-link  {{ Nav::isRoute('user.password') }}">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             Change Password

@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder {
-    
+class UsersTableSeeder extends Seeder
+{
     /**
      * Run the database seeds.
      *
@@ -18,7 +18,8 @@ class UsersTableSeeder extends Seeder {
             'address'      => 'Somewhere in Lahore',
             'city'         => 'lahore',
             'type'         => 'client',
-            'phone_number' => '0321-4388172'
+            'phone_number' => '0321-4388172',
+            'created_at'   => now(),
         ]);
         DB::table('users')->insert([
             'name'         => "Admin",
@@ -27,7 +28,8 @@ class UsersTableSeeder extends Seeder {
             'address'      => 'Somewhere in Lahore',
             'city'         => 'lahore',
             'type'         => 'admin',
-            'phone_number' => '0321-4488172'
+            'phone_number' => '0321-4488172',
+            'created_at' => now(),
         ]);
         DB::table('users')->insert([
             'name'         => "Driver",
@@ -36,14 +38,16 @@ class UsersTableSeeder extends Seeder {
             'address'      => 'Somewhere in Lahore',
             'city'         => 'lahore',
             'type'         => 'driver',
-            'phone_number' => '0321-4448172'
+            'phone_number' => '0321-4448172',
+            'created_at' => now(),
         ]);
         DB::table('drivers')->insert([
-            'name'         => "Driver",
-            'user_id'      => 3,
-            'cnic_number'  => '102421-4157483-1',
-            'verified'     => true,
-            'image'      => 'default.png'
+            'name'        => "Driver",
+            'user_id'     => 3,
+            'cnic_number' => '102421-4157483-1',
+            'verified'    => true,
+            'image'       => 'default.png',
+            'created_at' => now(),
         ]);
     }
 }

@@ -10,8 +10,8 @@
     
     <div class="container-fluid">
         <div class="table-responsive">
-            <table class="table" id="user-table">
-                <thead>
+            <table class="table table-bordered" id="user-table">
+                <thead class="thead-dark">
                 <tr>
                     <th> Register ID</th>
                     <th> Name</th>

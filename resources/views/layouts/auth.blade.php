@@ -7,12 +7,12 @@
     
     <title>Saamaan</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/purple_theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="/">
             <img src="{{ asset('img/logo.png') }}" height="30">

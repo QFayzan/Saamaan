@@ -4,67 +4,46 @@
     <div class="container">
         <div class="container-fluid">
 
-            <h2 class="text-center">Options</h2>
-            <hr>
-            <div class="row justify-content-around">
+            <div class="row justify-content-around mb-5">
                 <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">Create Order</div>
-                        <div class="card-body">
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal">Order Now
-                            </button>
-                        </div>
-                    </div>
+
+                    <button type="button" class="btn btn-block py-4 dashboard-btn btn-primary" data-toggle="modal"
+                            data-target="#exampleModal">Order Now
+                    </button>
+
                 </div>
 
 
                 <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">Check My Orders</div>
-                        <a href="{{route('orders.display')}}"></a>
-                        <div class="card-body">
-                            <a href="{{route('orders.index')}}"
-                               class="btn btn-primary">
-                                View Your Order
-                            </a>
-                        </div>
-                    </div>
+
+                    <a href="{{route('orders.index')}}"
+                       class="btn btn-primary py-4 dashboard-btn btn-block">
+                        My Current Orders
+                    </a>
+
                 </div>
             </div>
 
             {{--    Options For Driver Only  --}}
             @if(auth()->user()->type == "driver" )
-                <h2 class="text-center">Driver Options</h2>
-                <hr>
+
                 <div class="row justify-content-around">
 
                     @if(auth()->user()->driver->verified)
                         <div class="col-md-4">
 
-                            <div class="card">
-                                <div class="card-header">Accept Order</div>
-
-                                <div class="card-body">
-                                    <a class="btn btn-primary" href="{{route('orders.index')}}">
-                                        {{ auth()->user()->driver->order_picked ? "Show Current Order" : "Pick an Order"}}
-                                    </a>
-                                </div>
-                            </div>
+                            <a class="btn btn-primary btn-block py-4 dashboard-btn" href="{{route('orders.index')}}">
+                                {{ auth()->user()->driver->order_picked ? "Show Current Order" : "Pick an Order"}}
+                            </a>
 
                         </div>
 
                         <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-header">View Previous Orders</div>
 
-                                <div class="card-body">
-                                    <a href="{{route('drivers.previous')}}" class="btn btn-primary">
-                                        View Your Previous Order(s)
-                                    </a>
+                            <a href="{{route('drivers.previous')}}" class="btn btn-primary btn-block py-4 dashboard-btn">
+                                View Previous Order(s)
+                            </a>
 
-                                </div>
-                            </div>
                         </div>
                     @else
 

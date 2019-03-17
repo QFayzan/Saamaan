@@ -2,6 +2,37 @@
 @section('nav-title','Admin Dashboard')
 @section('content')
     <main class="py-4">
+
+        <div class="form-row col-10 mx-auto text-center mb-4">
+            <div class="col">
+
+                <a href="{{ route('admin.view.users') }}"
+                   class="btn btn-block btn-info py-3 dashboard-btn">
+                    View all Users
+                </a>
+
+            </div>
+
+            <div class="col">
+
+                <a href="{{ route('admin.view.current') }}"
+                   class="btn btn-block btn-success py-3 dashboard-btn">
+                    View All In-Progress Orders
+                </a>
+
+            </div>
+
+            <div class="col">
+
+                <a href="{{ route('admin.view.orders') }}"
+                   class="btn btn-block btn-primary py-3 dashboard-btn">
+                    Orders Archive
+                </a>
+
+            </div>
+
+        </div>
+
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-4">
@@ -30,49 +61,20 @@
                                         @csrf
                                         <button type="submit" class="btn btn-primary">Promote</button>
                                     </form>
-                                    
+
                                     <form action="{{ route('admin.refuse',$driver->id) }}" method="post">
                                         @csrf
                                         <button class="btn btn-danger" type="submit">Refuse</button>
                                     </form>
                                 </div>
-                            
+
                             </div>
                             @endforeach
                         </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">View All Users</div>
-                    <div class="card-body">
-                        <a href="{{ route('admin.view.users') }}" class=" btn btn-primary">
-                            View all Users
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">Check Ongoing Transactions</div>
-                    <div class="card-body">
-                        <a href="{{ route('admin.view.current') }}" class=" btn btn-primary">
-                            View All In-Progress Orders
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">View All Orders</div>
-                    <div class="card-body">
-                        <a href="{{ route('admin.view.orders') }}" class=" btn btn-primary">
-                            All Order Details
-                        </a>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </main>
-    
+
 @endsection

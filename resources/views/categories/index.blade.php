@@ -40,10 +40,10 @@
                         '<i class="fa fa-pencil-alt"></i> Edit</a>'
                 }},
             ],
-            dom: 'Bfrtip',
-            buttons: [
-                'pdfHtml5'
-            ]
+            // dom: 'Bfrtip',
+            // buttons: [
+            //     'pdfHtml5'
+            // ]
         });
     </script>
 @endpush

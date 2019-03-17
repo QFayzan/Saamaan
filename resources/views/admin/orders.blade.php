@@ -10,8 +10,8 @@
     
     <div class="container-fluid">
         <div class="table-responsive">
-            <table class="table" id="orders_table">
-                <thead>
+            <table class="table table-bordered" id="orders_table">
+                <thead class="thead-dark">
                 <tr>
                     <th> ID</th>
                     <th> Placed By (Client ID)</th>
