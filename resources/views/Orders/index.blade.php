@@ -16,11 +16,10 @@
                                         Status : {{ $order->status }}
                                         <small class="badge badge-light">Items {{ $order->details->count() }}</small>
                                     </h3>
-                                    
+                                    {{--@php ($totalprice = 500)--}}
                                     @foreach($order->details as $detail)
-                                        
+
                                         @if(auth()->user()->type =="client" and $order->status=="waiting")
-                                        
                                         <h5>
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                                     data-target="#Edit-Modal{{ $detail->id }}">Edit Order Details
@@ -35,6 +34,7 @@
                                         </ul>
                                         @include("Orders.detailModel")
                                     @endforeach
+{{--                                    <div class="lead"><b>Total Price = RS : {{ $totalprice }}</b></div>--}}
                                     @if(auth()->user()->type == "driver")
                                         @if( auth()->user()->driver->order_picked == false)
                                             <form action="{{ route('driver.pick.order', $order->id) }}" method="post">

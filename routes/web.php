@@ -13,6 +13,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@home');
+Route::get('rates', 'HomeController@rates')->name('rates');
 Route::redirect('/home','/');
 //User Routes
 Route::get('/users/dashboard', 'userscontroller@index')->name('dashboard');

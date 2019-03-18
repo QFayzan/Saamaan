@@ -11,6 +11,7 @@ class CreateOrderCategoriesTable extends Migration
      *
      * @return void
      */
+        
     public function up()
     {
         Schema::create('order__categories', function (Blueprint $table) {

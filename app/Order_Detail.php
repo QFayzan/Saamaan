@@ -14,4 +14,11 @@ class Order_Detail extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public function category()
+    {
+        $name = $this->category;
+        return Order_Category::findByName($name);
+    }
+
 }

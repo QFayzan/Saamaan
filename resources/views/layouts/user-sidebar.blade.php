@@ -41,7 +41,7 @@
                     <li class="nav-item">
                         <a href="{{route('orders.index')}}" class="nav-link {{Nav::isRoute('orders.index')}}">
                             <i class = "nav-icon fas fa-search"></i>
-                            My Current Orders
+                            <p>My Current Orders</p>
                         </a>
                     </li>
                     @endif

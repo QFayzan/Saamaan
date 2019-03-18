@@ -4,11 +4,7 @@ use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder {
     
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         DB::table('users')->insert([
@@ -54,12 +50,8 @@ class UsersTableSeeder extends Seeder {
             'name'          => "Company",
             'contact'       => '03245172781',
             'address'       => 'Lahore',
-            'registeration' => true,
+            'registration'  => '1234567',
         
         ]);
     }
 }
-//public function run()
-//{
-//
-//}
