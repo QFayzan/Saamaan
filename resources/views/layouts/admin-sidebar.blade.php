@@ -35,7 +35,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="/users/admindisplay" class="nav-link">
+                    <a href="{{ route('user.adminshow') }}" class="nav-link {{ Nav::isRoute('user.adminshow') }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Profile

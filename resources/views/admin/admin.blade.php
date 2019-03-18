@@ -3,29 +3,29 @@
 @section('content')
     <main class="py-4">
 
-        <div class="form-row col-10 mx-auto text-center mb-4">
-            <div class="col">
+        <div class="col-10 mx-auto text-center mb-4">
+            <div class="container-fluid mb-4">
 
                 <a href="{{ route('admin.view.users') }}"
-                   class="btn btn-block btn-info py-3 dashboard-btn">
+                   class="btn btn-block btn-info py-4 dashboard-btn">
                     View all Users
                 </a>
 
             </div>
 
-            <div class="col">
+            <div class="container-fluid mb-4">
 
                 <a href="{{ route('admin.view.current') }}"
-                   class="btn btn-block btn-success py-3 dashboard-btn">
+                   class="btn btn-block btn-success py-4 dashboard-btn">
                     View All In-Progress Orders
                 </a>
 
             </div>
 
-            <div class="col">
+            <div class="container-fluid mb-4">
 
                 <a href="{{ route('admin.view.orders') }}"
-                   class="btn btn-block btn-primary py-3 dashboard-btn">
+                   class="btn btn-block btn-primary py-4 dashboard-btn">
                     Orders Archive
                 </a>
 

@@ -37,7 +37,29 @@
                         </p>
                     </a>
                 </li>
-
+                @if(auth()->user()->type=='client')
+                    <li class="nav-item">
+                        <a href="{{route('orders.index')}}" class="nav-link {{Nav::isRoute('orders.index')}}">
+                            <i class = "nav-icon fas fa-search"></i>
+                            My Current Orders
+                        </a>
+                    </li>
+                    @endif
+                {{--Driver Specific Sidebar Options here--}}
+                @if(auth()->user()->type=='driver')
+                    <li class="nav-item">
+                        <a href="{{route('orders.index')}}" class="nav-link {{Nav::isRoute('orders.index')}}">
+                            <i class = "nav-icon fas fa-plus"></i>
+                            Pick an Order
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('drivers.previous')}}" class="nav-link {{Nav::isRoute('drivers.previous')}}">
+                            <i class = "nav-icon fas fa-search"></i>
+                            My Order History
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a href="/users/display" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
@@ -46,6 +68,7 @@
                         </p>
                     </a>
                 </li>
+                
                 <li class="nav-item">
                     <a href="{{ route('user.edit', auth()->id()) }}" class="nav-link">
                         <i class="nav-icon fas fa-user-cog"></i>

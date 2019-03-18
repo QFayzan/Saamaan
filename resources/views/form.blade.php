@@ -7,7 +7,7 @@
             <div class="row justify-content-left">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">@yield('title')</div>
+                        <div class="card-header text-center text-bold" >@yield('title')</div>
                         
                         <div class="card-body">
                             @yield('form')
