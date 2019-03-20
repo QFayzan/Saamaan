@@ -41,7 +41,7 @@ class OrderCategoryController extends Controller
                 'basic_fee' => 'required',
             ]);
             Order_Category::addUpdateOrderCategory($data);
-            flash('created successfully');
+            flash('Created Successfully');
             return back();
         } catch (\Exception $exception) {
             return $exception->getMessage();
@@ -68,7 +68,7 @@ class OrderCategoryController extends Controller
             ]);
             Order_Category::addUpdateOrderCategory($data, $order_category);
 
-            flash('Updated successfully');
+            flash('Updated Successfully');
 
             return back();
         } catch (\Exception $exception) {

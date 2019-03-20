@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder {
             'verified'        => true,
             'image'           => 'default.png',
             'created_at'      => now(),
-            'organization_id' => '1',
+            'organization_name' => 'Company',
         ]);
         DB::table('organizations')->insert([
             'name'          => "Company",
@@ -52,6 +52,18 @@ class UsersTableSeeder extends Seeder {
             'address'       => 'Lahore',
             'registration'  => '1234567',
         
+        ]);
+        DB::table('order__categories')->insert([
+            'name'          => "Electronics",
+            'price_rate'       => '40',
+            'basic_fee'       => '100',
+            'created_at'      => now(),
+        ]);
+        DB::table('order__categories')->insert([
+            'name'          => "Furniture",
+            'price_rate'       => '35',
+            'basic_fee'       => '120',
+            'created_at'      => now(),
         ]);
     }
 }

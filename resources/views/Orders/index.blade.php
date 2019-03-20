@@ -16,25 +16,28 @@
                                         Status : {{ $order->status }}
                                         <small class="badge badge-light">Items {{ $order->details->count() }}</small>
                                     </h3>
-                                    {{--@php ($totalprice = 500)--}}
                                     @foreach($order->details as $detail)
-
+                                        
                                         @if(auth()->user()->type =="client" and $order->status=="waiting")
-                                        <h5>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#Edit-Modal{{ $detail->id }}">Edit Order Details
-                                                {{ $loop->iteration }}</button>
-                                        </h5>
+                                            <h5>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#Edit-Modal{{ $detail->id }}">Edit Order Details
+                                                    {{ $loop->iteration }}</button>
+                                            </h5>
                                         @endif
                                         <ul>
                                             <li><b>Name : </b>{{ $detail->name }}</li>
                                             <li><b>Quantity :</b> {{ $detail->quantity }}</li>
                                             <li><b>Category :</b> {{ $detail->category }}</li>
                                             <li><b>Placed :</b> {{ $detail->updated_at->diffForHumans() }}</li>
+                                            @if(auth()->user()->type == 'client' && $order->picked_by == true)
+                                                <li><b>Picked By :</b> {{ $order->pickedBy->name}}</li>
+                                                <li><b>Organization :</b> {{ $order->pickedBy->organization_name}}</li>
+                                            @endif
                                         </ul>
                                         @include("Orders.detailModel")
                                     @endforeach
-{{--                                    <div class="lead"><b>Total Price = RS : {{ $totalprice }}</b></div>--}}
+                                    <div class="lead"><b>Base Price = RS : 350</b></div>
                                     @if(auth()->user()->type == "driver")
                                         @if( auth()->user()->driver->order_picked == false)
                                             <form action="{{ route('driver.pick.order', $order->id) }}" method="post">
@@ -49,15 +52,15 @@
                                                 <button class="btn btn-success">Completed</button>
                                             </form>
                                         @endif
-                                        
+                                    
                                     @endif
                                 </div>
                                 @if(auth()->user()->type =="client" and $order->status=="waiting" )
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#Modal{{ $order->id }}">Add More Items to the Order.
-                                </button>
-                               @include('Orders.editModel')
-                            @endif
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#Modal{{ $order->id }}">Add More Items to the Order.
+                                    </button>
+                                    @include('Orders.editModel')
+                                @endif
                             </div>
                         </div>
                     @endforeach

@@ -13,6 +13,11 @@
     </div>
   
     <ul class="navbar-nav ml-auto">
+        @if(auth()->user()->type=='client')
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('rates')}}">Rate List</a>
+        </li>
+        @endif
         <li class="nav-item">
             <a class="nav-link" href="{{route('about')}}">About</a>
         </li>
