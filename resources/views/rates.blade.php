@@ -32,7 +32,7 @@
                 {
                     data: null,
                     render: function (data) {
-                        return 'RS : ' +data.price_rate + ' / KM + ' + data.basic_fee;
+                        return 'Rs : ' +data.price_rate + ' / Km + ' + data.basic_fee +' Base Price';
                     }
                 }
             ]
